@@ -13,10 +13,19 @@
   <body>
     <!-- PARTIALS -->
     <include src="./partials/header.html"></include>
-    <include src="./partials/home.html"></include>
-    <include src="./partials/support-ukraine.html"></include>
-    <include src="./partials/modal-book-info.html"></include>
-    <include src="./partials/shopping-list.html"></include>
+    <main>
+      <div class="container">
+        <aside class="sidebar">
+          <include src="./partials/categories-list.html"></include>
+          <include src="./partials/support-ukraine.html"></include>
+        </aside>
+        <div class="gallery-section">
+          <include src="./partials/bestsellers.html"></include>
+          <include src="./partials/category.html"></include>
+        </div>
+      </div>
+    </main>
     <include src="./partials/footer.html"></include>
+    <include src="./partials/modal-book-info.html"></include>
   </body>
 </html>
