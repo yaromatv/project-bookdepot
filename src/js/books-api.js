@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const BASE_URL = axios.create({
+ const BASE_URL = axios.create({
   baseURL: "https://books-backend.p.goit.global"
 });
 
@@ -10,6 +10,7 @@ export async function fetchCategoriesList() {
     return response.data;
   } catch (error) {
     console.log(error);
+    throw error;
   }
 }
 
@@ -19,6 +20,7 @@ export async function fetchTopBooks() {
     return response.data;
   } catch (error) {
     console.log(error);
+    throw error;
   }
 }
 
@@ -28,6 +30,7 @@ export async function fetchCategory(category) {
     return response.data;
   } catch (error) {
     console.log(error);
+    throw error;
   }
 }
 
@@ -37,5 +40,6 @@ export async function booksRequest(id) {
     return response.data;
   } catch (error) {
     console.log(error);
+    throw error;
   }
 }
