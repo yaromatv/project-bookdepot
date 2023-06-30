@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const BASE_URL = axios.create({
+ const BASE_URL = axios.create({
   baseURL: "https://books-backend.p.goit.global"
 });
 
