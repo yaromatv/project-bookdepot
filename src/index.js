@@ -1,9 +1,12 @@
 // DO NOT TYPE HERE
 
+import './js/bestsellers';
 import './js/books-api';
+import './js/categories-list';
+import './js/category';
+import './js/dark-mode';
+import './js/footer';
 import './js/header';
-import './js/home';
-import './js/support-ukraine';
 import './js/modal-book-info';
 import './js/shopping-list';
-import './js/footer';
+import './js/support-ukraine';
