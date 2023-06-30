@@ -1,0 +1,16 @@
+@import '~node_modules/modern-normalize/modern-normalize.css';
+@import './base/reset.css';
+@import './base/fonts.css';
+@import './base/common.css';
+@import './components/header';
+@import './components/sidebar.css';
+@import './components/categories-list.css';
+@import './components/support-ukraine.css';
+@import './components/gallery-section.css';
+@import './components/bestsellers.css';
+@import './components/category.css';
+@import './components/footer.css';
+@import './components/modal-book-info.css';
+@import './components/loader.css';
+@import './components/shopping-list.css';
+@import './dark-mode.css';

@@ -1,0 +1,27 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  max-width: 320px;
+  margin-top: 40px;
+  gap: 40px;
+}
+
+.categories-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  height: 228px;
+  text-align: left;
+  overflow-y: auto;
+}
+
+.categories-item {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.125em;
+  letter-spacing: -0.02em;
+}
+
+.categories-item.active {
+  text-transform: uppercase;
+}

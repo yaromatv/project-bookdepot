@@ -1,0 +1,11 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  max-width: 320px;
+  margin-top: 40px;
+  gap: 40px;
+}
+
+a {
+  text-decoration: none;
+}

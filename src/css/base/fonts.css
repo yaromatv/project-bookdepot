@@ -1,0 +1,30 @@
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: normal;
+  src: local('DM Sans Regular'),
+    url('../../fonts/DMSans-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'DM Sans';
+  font-style: italic;
+  font-weight: normal;
+  src: local('DM Sans Italic'),
+    url('../../fonts/DMSans-Italic.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 500;
+  src: local('DM Sans Medium'),
+    url('../../fonts/DMSans-Medium.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local('DM Sans Bold'), url('../../fonts/DMSans-Bold.woff') format('woff');
+}

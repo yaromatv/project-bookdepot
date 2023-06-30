@@ -1,0 +1,22 @@
+.container {
+  padding: 0 20px;
+}
+
+.gallery-section {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.accent-color {
+  color: #4f2ee8;
+}
+
+.hidden {
+  display: none;
+  visibility: none;
+}

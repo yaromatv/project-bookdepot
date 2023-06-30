@@ -1,0 +1,27 @@
+body {
+  font-family: 'DM Sans', sans-serif;
+  color: 111111;
+  background-color: #f3f3f3;
+}
+
+.container {
+  padding: 0 20px;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.accent-color {
+  color: #4f2ee8;
+}
+
+.hidden {
+  display: none;
+  visibility: none;
+}
+
+.is-hidden {
+  display: none !important;
+}
