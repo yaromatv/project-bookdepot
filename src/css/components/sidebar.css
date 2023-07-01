@@ -1,6 +1,7 @@
 a {
   text-decoration: none;
 }
+
 .sidebar {
   display: flex;
   flex-direction: column;
@@ -17,9 +18,10 @@ a {
     gap: 32px;
   }
 }
+
 @media screen and (min-width: 1440px) {
   .sidebar {
     flex-direction: column;
-    max-width: 1200px;
+    max-width: 356px;
   }
 }
