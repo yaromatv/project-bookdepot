@@ -1,8 +1,18 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
 
+:root {
+  --dark-category-accent-color: #eac645;
+  --light-category-accent-color: #4f2ee8;
+  --dark-background-color: #202024;
+  --light-background-color: #f6f6f6;
+  --text-color: #111111;
+  --light-lift-color: #e0e0e0;
+  --titles-color: #b4afaf;
+}
+
 body {
   font-family: 'DM Sans', sans-serif;
-  color: #111111;
+  color: var(--text-color);
   background-color: #f3f3f3;
 }
 
@@ -44,7 +54,7 @@ body {
 }
 
 .accent-color {
-  color: #4f2ee8;
+  color: var(--light-category-accent-color);
 }
 
 .hidden {
@@ -52,38 +62,15 @@ body {
   visibility: none;
 }
 
-.is-hidden {
-  display: none !important;
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
-
-/* :root {
-  --dark-background-color: #1e1823;
-  --light-background-color: #e2e2e2;
-  --primary-text-color: #111111;
-  --contrast-color: #fd9222;
-  --primary-hover-color: #fcf1e0;
-  --primary-white-color: #ffffff;
-  --secondary-white-color: #fafafa;
-  --dark-white: rgba(255, 255, 255, 0.7);
-  --transition-timing: 250ms;
-  --transition-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-body {
-  font-family: 'Montserrat', sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 1.29;
-  letter-spacing: -0.02em;
-  color: var(--primary-text-color);
-  background-color: var(--secondary-white-color);
-}
-
-h2 {
-  font-weight: 600;
-  font-size: 20px;
-  line-height: 1.2;
-  text-align: center;
-  letter-spacing: -0.03em;
-  text-transform: uppercase;
-} */
