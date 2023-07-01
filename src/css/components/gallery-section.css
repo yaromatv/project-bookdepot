@@ -1,15 +1,13 @@
-.container {
-  padding: 0 20px;
-}
-
 .gallery-section {
-  margin-top: 40px;
-  margin-bottom: 40px;
+  padding-top: 40px;
+  padding-bottom: 40px;
 }
 
-.title {
+.gallery-title {
   font-size: 32px;
   font-weight: 700;
+  line-height: 1.19;
+  letter-spacing: -0.04em;
 }
 
 .accent-color {
@@ -19,4 +17,22 @@
 .hidden {
   display: none;
   visibility: none;
+}
+
+@media screen and (min-width: 768px) {
+  .gallery-section {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+
+  .gallery-title {
+    font-size: 48px;
+    line-height: 1.08;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .gallery-section {
+    padding-top: 112px;
+  }
 }

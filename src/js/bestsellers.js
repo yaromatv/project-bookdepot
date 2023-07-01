@@ -1,9 +1,12 @@
 import { fetchTopBooks } from './books-api';
+import { onSeeMore } from './bestsellers-see-more';
+import { createTopBooksMarkup } from './gallery-markup';
 
-const topBooksEl = document.querySelector('.top-books-wrap');
-console.log('topBooksEl:', topBooksEl);
+const topBooksEl = document.querySelector('.top-books');
+const topBooksWrapEl = document.querySelector('.top-books-wrap');
+const categoryEl = document.querySelector('.category');
 
-const debouncedHandleResize = debounce(handleResize, 150);
+export const debouncedHandleResize = debounce(handleResize, 150);
 
 window.addEventListener('resize', debouncedHandleResize);
 
@@ -17,7 +20,7 @@ function handleResize() {
     bookCount = 3;
   }
 
-  if (windowWidth > 1200) {
+  if (windowWidth > 1440) {
     bookCount = 5;
   }
 
@@ -33,11 +36,16 @@ function debounce(func, delay) {
 }
 
 async function showTopBooks(bookCount) {
+  topBooksEl.classList.remove('hidden');
+  categoryEl.innerHTML = '';
+
   try {
     const response = await fetchTopBooks();
     console.log(response);
 
     renderTopBooks(response, bookCount);
+    const showMoreBtn = document.querySelector('.top-books-category-btn');
+    showMoreBtn.addEventListener('click', onSeeMore);
   } catch (error) {
     // errorMessage();
     console.error(error);
@@ -49,27 +57,5 @@ function renderTopBooks(data, bookCount) {
     .map(category => createTopBooksMarkup(category, bookCount))
     .join('');
 
-  topBooksEl.innerHTML = topBooksMarkup;
-}
-
-function createTopBooksMarkup({ list_name, books }, bookCount) {
-  books.length = bookCount;
-
-  const bookCardsMarkup = books
-    .map(({ book_image, title, author }) => {
-      return `<li class="top-books-category-item">
-        <div class="top-books-category-item-img-wrap">
-            <img class="top-books-category-item-img" src="${book_image}" alt="book cover"/>
-        </div>
-        <h4 class="top-books-category-item-title">${title}</h4>
-        <p class="top-books-category-item-author">${author}</p>
-      </li>`;
-    })
-    .join('');
-
-  return `<div class="top-books-category-wrap">
-  <h3 class="top-books-category-title">${list_name}</h3>
-    <ul class="top-books-category-list">${bookCardsMarkup}</ul>
-    <button class="top-books-category-btn">See more</button>
-  </div>`;
+  topBooksWrapEl.innerHTML = topBooksMarkup;
 }

@@ -1,77 +1,57 @@
 import { fetchCategory, fetchTopBooks } from './books-api';
+import { createCategoryMarkup } from './gallery-markup';
+import { debouncedHandleResize } from './bestsellers';
 
 const categoriesListEl = document.querySelector('.categories-list');
 const topBooksEl = document.querySelector('.top-books');
-const categoryBooksListEl = document.querySelector('.category-books-list');
+const categoryEl = document.querySelector('.category');
 
 categoriesListEl.addEventListener('click', onChooseCategory);
 
-async function onChooseCategory(evt) {
-  const selectedCategoryName = evt.target.textContent;
+let selectedCategoryName = '';
 
-  console.log(selectedCategoryName);
+export async function onChooseCategory(evt) {
+  selectedCategoryName = evt.target.textContent;
+
+  const item = categoriesListEl.querySelectorAll('.categories-item');
+  item.forEach(li => li.classList.remove('active'));
+
+  evt.target.parentNode.classList.add('active');
+
+  if (selectedCategoryName === 'All categories') {
+    debouncedHandleResize();
+  }
 
   try {
-    if (selectedCategoryName === 'All categories') {
-      const response = await fetchTopBooks();
-      console.log(response);
+    const response = await fetchCategory(selectedCategoryName);
 
-      renderMainGallery(response);
-    } else {
-      const response = await fetchCategory(selectedCategoryName);
-
-      console.log(response);
-
-      categoryBooksListEl.classList.remove('hidden');
-      renderCategoryGallery(response);
-    }
+    renderCategoryGallery(response);
   } catch (error) {
     // errorMessage();
     console.error(error);
   }
 }
 
-function renderMainGallery(data) {
-  const galleryMainMarkup = data
-    .map(book => createGalleryMainMarkup(book))
-    .join('');
-
-  topBooksEl.innerHTML = galleryMainMarkup;
-}
-
 function renderCategoryGallery(data) {
-  const galleryMainMarkup = data
-    .map(book => createGalleryCategoryMarkup(book.book_image))
-    .join('');
+  topBooksEl.classList.add('hidden');
+  categoryEl.classList.remove('hidden');
 
-  categoryBooksListEl.innerHTML = galleryMainMarkup;
-}
+  let nameLastWord = '';
 
-function createGalleryMainMarkup({ list_name, books }) {
-  return `
-  <p class="top-books-category-title">${list_name}</p>
-  <ul class="top-books-list">
-    <li class="top-books-item">
-      <a href="#"><img src="${books[0].book_image}"></a>
-    </li>
-    <li class="top-books-item">
-      <a href="#"><img src="${books[1].book_image}"></a>
-    </li>
-    <li class="top-books-item">
-      <a href="#"><img src="${books[2].book_image}"></a>
-    </li>
-    <li class="top-books-item">
-      <a href="#"><img src="${books[3].book_image}"></a>
-    </li>
-    <li class="top-books-item">
-      <a href="#"><img src="${books[4].book_image}"></a>
-    </li>
-  </ul >`;
-}
+  const splitCategoryName = name => {
+    const wordsArray = name.split(' ');
+    nameLastWord = wordsArray[wordsArray.length - 1];
+    wordsArray.length = wordsArray.length - 1;
 
-function createGalleryCategoryMarkup(book_image) {
-  return `
-      <li class="top-book">
-        <a href="#"><img src='${book_image}'></a>
-      </li>`;
+    return wordsArray;
+  };
+
+  const nameFirstPart = splitCategoryName(selectedCategoryName).join(' ');
+
+  const categoryMarkup = data.map(book => createCategoryMarkup(book)).join('');
+
+  categoryEl.innerHTML = `<h2 class="category-title gallery-title">
+  ${nameFirstPart} <span class="accent-color">${nameLastWord}</span>
+  </h2>
+  <ul class="category-books-list">${categoryMarkup}</ul>`;
 }
