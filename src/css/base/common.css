@@ -36,14 +36,9 @@ body {
   }
 }
 
-.main-wrapper {
-  display: flex;
-  flex-direction: column;
-}
-
 @media screen and (min-width: 1440px) {
   .main-wrapper {
-    flex-direction: row;
+    display: flex;
     gap: 40px;
   }
 }
