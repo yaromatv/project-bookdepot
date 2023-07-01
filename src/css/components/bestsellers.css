@@ -1,0 +1,15 @@
+.top-books-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-top: 40px;
+}
+
+/* .top-books-item {
+    width: calc(100% - 25px * 4);
+    height: auto;
+  } */
+
+/* .top-books-item > img {
+    width: 100%;
+  } */

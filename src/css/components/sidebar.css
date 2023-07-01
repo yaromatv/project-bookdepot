@@ -1,0 +1,25 @@
+a {
+  text-decoration: none;
+}
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  max-width: 335px;
+  margin-top: 104px;
+  gap: 40px;
+}
+
+@media screen and (min-width: 768px) {
+  .sidebar {
+    flex-direction: row;
+    margin-top: 112px;
+    max-width: 704px;
+    gap: 32px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .sidebar {
+    flex-direction: column;
+    max-width: 1200px;
+  }
+}
