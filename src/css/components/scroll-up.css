@@ -10,11 +10,8 @@
   bottom: 30px;
   right: 30px;
   z-index: 100;
-  /* hide with opacity */
   opacity: 0;
-  /* also add a translate effect */
   transform: translateY(100px);
-  /* and a transition */
   transition: all 0.5s ease;
 }
 
