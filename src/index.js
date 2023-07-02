@@ -10,3 +10,4 @@ import './js/header';
 import './js/modal-book-info';
 import './js/shopping-list';
 import './js/support-ukraine';
+import './js/pagination';
