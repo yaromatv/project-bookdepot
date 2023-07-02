@@ -1,5 +1,5 @@
 // DO NOT TYPE HERE
-
+import './js/scroll-up';
 import './js/bestsellers';
 import './js/books-api';
 import './js/categories-list';
