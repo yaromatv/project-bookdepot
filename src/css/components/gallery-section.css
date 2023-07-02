@@ -11,7 +11,7 @@
 }
 
 .accent-color {
-  color: #4f2ee8;
+  color: var(--light-category-accent-color);
 }
 
 .hidden {
