@@ -89,6 +89,7 @@ body {
 .buttons:focus {
   background-color: var(--light-category-accent-color);
   color: var(--button-accent-text-color);
+  font-style: normal;
 }
 
 /* button HOME */
