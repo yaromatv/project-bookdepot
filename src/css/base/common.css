@@ -8,6 +8,7 @@
   --text-color: #111111;
   --light-lift-color: #e0e0e0;
   --titles-color: #b4afaf;
+  --button-accent-text-color: #ffffff;
 }
 
 body {
@@ -69,3 +70,33 @@ body {
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
+
+/* buttons: SEE MORE, ADD TO SHOPPING LIST, REMOVE FROM THE SHOPPING LIST*/
+
+.buttons {
+  font-size: 18px;
+  font-style: bold;
+  line-height: calc(24 / 18);
+  letter-spacing: -1%;
+  color: var(--text-color);
+  font-family: inherit;
+  padding: 20px 0px;
+  border-radius: 40px;
+  border: 2px;
+}
+
+.buttons:hover,
+.buttons:focus {
+  background-color: var(--light-category-accent-color);
+  color: var(--button-accent-text-color);
+}
+
+/* button HOME */
+/* buttons: LOG OUT, SIGN UP */
+
+/* .menu-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 72px;
+} */
