@@ -1,10 +1,9 @@
 /* ================MODAL MOBILE================ */
-* {
+/* * {
   margin-bottom: 0;
-  /* padding: 0; */
-}
+} */
 
-.backdrop {
+/* .backdrop {
   position: fixed;
   top: 0;
   left: 0;
@@ -122,11 +121,11 @@
   text-align: center;
   min-width: 211px;
   min-width: 279px;
-}
+} */
 
 /* ======================================== */
 
-@media screen and (min-width: 768px) {
+/* @media screen and (min-width: 768px) {
   .modal {
     width: 579px;
     height: 700px;
@@ -153,4 +152,4 @@
     padding-bottom: 20px;
     white-space: nowrap;
   }
-}
+} */
