@@ -1,10 +1,10 @@
 import { fetchTopBooks } from './books-api';
-import { onSeeMore } from './bestsellers-see-more';
 import { createTopBooksMarkup } from './gallery-markup';
+import { onChooseCategory } from './category';
+import { errorMessage } from './categories-list';
 
 const topBooksEl = document.querySelector('.top-books');
 const topBooksWrapEl = document.querySelector('.top-books-wrap');
-const categoryEl = document.querySelector('.category');
 
 export const debouncedHandleResize = debounce(handleResize, 150);
 
@@ -13,15 +13,10 @@ window.addEventListener('resize', debouncedHandleResize);
 handleResize();
 
 function handleResize() {
-  const windowWidth = window.innerWidth;
-  let bookCount = 1;
+  const bookCount = getBookCount();
 
-  if (windowWidth > 768) {
-    bookCount = 3;
-  }
-
-  if (windowWidth > 1440) {
-    bookCount = 5;
+  if (topBooksEl.classList.contains('visually-hidden')) {
+    return;
   }
 
   showTopBooks(bookCount);
@@ -36,18 +31,14 @@ function debounce(func, delay) {
 }
 
 async function showTopBooks(bookCount) {
-  topBooksEl.classList.remove('hidden');
-  categoryEl.innerHTML = '';
+  topBooksEl.classList.remove('visually-hidden');
 
   try {
     const response = await fetchTopBooks();
-    console.log(response);
-
     renderTopBooks(response, bookCount);
-    const showMoreBtn = document.querySelector('.top-books-category-btn');
-    showMoreBtn.addEventListener('click', onSeeMore);
+    topBooksEl.addEventListener('click', onChooseCategory);
   } catch (error) {
-    // errorMessage();
+    errorMessage();
     console.error(error);
   }
 }
@@ -58,4 +49,18 @@ function renderTopBooks(data, bookCount) {
     .join('');
 
   topBooksWrapEl.innerHTML = topBooksMarkup;
+}
+
+export function getBookCount() {
+  let bookCount = 1;
+
+  if (window.innerWidth > 768) {
+    bookCount = 3;
+  }
+
+  if (window.innerWidth > 1440) {
+    bookCount = 5;
+  }
+
+  return bookCount;
 }

@@ -32,7 +32,7 @@
 
 .categories-item.active {
   font-weight: 700;
-  color: #4f2ee8;
+  color: var(--light-category-accent-color);
   text-transform: uppercase;
 }
 
@@ -55,7 +55,7 @@ html {
 ::-webkit-scrollbar-thumb {
   height: 114px;
   border-radius: 12px;
-  background: #e0e0e0;
+  background: var(--light-lift-color);
 }
 
 @media screen and (min-width: 768px) {
