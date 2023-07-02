@@ -9,6 +9,7 @@
 @import './components/bestsellers.css';
 @import './components/category.css';
 @import './components/footer.css';
+@import './components/modal-team.css';
 @import './components/modal-book-info.css';
 @import './components/loader.css';
 @import './components/shopping-list.css';
