@@ -1,9 +1,10 @@
 /* ================MODAL MOBILE================ */
-/* * {
+* {
   margin-bottom: 0;
-} */
+  /* padding: 0; */
+}
 
-/* .backdrop {
+.backdrop {
   position: fixed;
   top: 0;
   left: 0;
@@ -63,6 +64,11 @@
   align-items: center;
   padding: 40px 24px;
 }
+
+.book-details {
+  text-align: left;
+  margin-right: auto;
+}
 .book-name {
   color: #111111;
   font-size: 16px;
@@ -121,11 +127,29 @@
   text-align: center;
   min-width: 211px;
   min-width: 279px;
-} */
+}
 
+.add-list-btn:hover,
+.add-list-btn:focus {
+  color: #ffffff;
+  background-color: #4f2ee8;
+}
+
+.add-list-btn:hover:not(:focus),
+.add-list-btn:focus:not(:hover),
+.add-list-btn:active,
+.add-list-btn:active:focus {
+  color: initial;
+  background-color: initial;
+}
+
+.hover-effect {
+  color: #ffffff;
+  background-color: #4f2ee8;
+}
 /* ======================================== */
 
-/* @media screen and (min-width: 768px) {
+@media screen and (min-width: 768px) {
   .modal {
     width: 579px;
     height: 700px;
@@ -152,4 +176,4 @@
     padding-bottom: 20px;
     white-space: nowrap;
   }
-} */
+}
