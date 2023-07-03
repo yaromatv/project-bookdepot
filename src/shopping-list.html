@@ -6,14 +6,19 @@
     <title>Shopping list</title>
 
     <link rel="icon" type="image/svg+xml" href="/src/favicon.svg" />
-    <link rel="stylesheet" href="./sass/index.scss" />
+    <link rel="stylesheet" href="./css/index.css" />
 
-    <script type="module" src="./index.js"></script>
+    <script type="module" src="./js/shopping-list.js"></script>
   </head>
   <body>
     <!-- PARTIALS -->
     <include src="./partials/header.html"></include>
-    <main></main>
+    <main>
+      <div class="container main-wrapper">
+        <h1 class="title-shopping-list">Shopping <span>List</span></h1>
+        <ul class="shopping-list-js"></ul>
+      </div>
+    </main>
     <include src="./partials/footer.html"></include>
   </body>
 </html>

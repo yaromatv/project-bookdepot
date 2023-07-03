@@ -1,0 +1,121 @@
+.title-shopping-list span{
+    color: var(--light-category-accent-color);
+}
+.title-shopping-list{
+    text-align: left;
+    margin: 40 0px;
+}
+.card-book-li {
+    padding: 14px;
+    width: 335px;
+    height: 170px;
+    margin-bottom: 20px;
+    background: transparent;
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    align-items: flex-start;
+    border: 2px solid rgba(79,46,232,.4);
+    border-radius: 16px;
+}
+.card-book-box{
+    width: 193px;
+}
+.img-book {
+    width: 100px;
+    height: 142px;
+    margin-right: 14px;
+    border-radius: 8px;
+}
+.book-title {
+    font-size: 16px;
+    margin-bottom: 4px;
+}
+.category-shopping-list{
+    width: 100%;
+    margin-bottom: 8px;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: .03em;
+    color: var(--titles-color);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.description-shopping-list{
+    margin-bottom: 8px;
+    height: 74px;
+}
+.author-shopping-list{
+    font-style: italic;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: -.04em;
+    color: var(--titles-color);
+}
+.position-box{
+display: flex;
+}
+
+.buy-links-box{
+    display: flex;
+    justify-content:flex-end;
+}
+
+.remove-shopping-list-btn {
+    width: 28px;
+    height: 28px;
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    display: flex;
+    justify-content:end;
+    align-items: center;
+    border-radius: 50%;
+    background-color: var(--light-category-accent-color);
+}
+.remove-boc-icon{
+    fill: #4F2EE8;
+    stroke: #fff;
+}
+@media screen and (min-width: 768px) and (max-width: 1439px) {
+    .card-book-li {
+        padding: 24px;
+        width: 704px;
+        height: 213px;
+    }
+    .card-book-box{
+        width: 508px;
+    }
+    .img-book{
+        width: 116px;
+        height: 165px;
+        margin-right: 24px;
+    }
+    .category-shopping-list{
+        margin-bottom: 14px;
+        width: 508px;
+    }
+    .description-shopping-list{
+        height: 93px;
+        width: 508px;
+    }
+    .position-box{
+        justify-content: space-between;
+    }
+    .remove-shopping-list-btn {
+        top: 24px;
+        right: 24px;
+    }
+}
+@media screen and (min-width: 1440px){
+    .card-book-li{
+    width: 996px;
+    }
+    .card-book-box{
+        width: 808px;
+    }
+    .position-box{
+        justify-content: space-between;
+    }
+}
