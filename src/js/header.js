@@ -12,8 +12,12 @@ navHreffsArr.forEach((navLink) => {
     } else {
         navLink.style.backgroundColor = "transparent";
         navLink.style.color = "#FFFFFF";
-    }    
+    }
 })
+
+
+
+
 
 
 
