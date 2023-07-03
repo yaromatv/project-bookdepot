@@ -7,18 +7,23 @@ export function createTopBooksMarkup({ list_name, books }, bookCount) {
   books.length = bookCount;
   const bookIcon = getBookIconSize(bookCount);
 
+  // FOR TEST
+  // books[1].title = '';
+  // books[2].author = '';
+  // books[1].book_image = '';
+
   const bookCardsMarkup = books
     .map(({ book_image, title, author, _id }) => {
       const bookCover = bookCoverMarkup(book_image, bookIcon);
 
-      return `<li class="top-books-category-item">
-          <a class="top-books-category-item-link" href="#">
-            <span class="book-id hidden">${_id}</span>
-              ${bookCover}
-            <h4 class="top-books-category-item-title">${title}</h4>
-            <p class="top-books-category-item-author">${author}</p>
-          </a>
-        </li>`;
+      if (title === '') {
+        title = 'Missing book title';
+      }
+      if (author === '') {
+        author = 'Missing book author';
+      }
+
+      return bookCardMarkup(_id, bookCover, title, author);
     })
     .join('');
 
@@ -33,18 +38,31 @@ export function createCategoryMarkup({ _id, book_image, title, author }) {
   const bookCount = getBookCount();
   const bookIcon = getBookIconSize(bookCount);
 
+  // FOR TEST
+  // title = '';
+  // author = '';
+  // book_image = '';
+
   const bookCover = bookCoverMarkup(book_image, bookIcon);
 
-  const bookCardsMarkup = `<li class="category-books-item">
-          <a class="top-books-category-item-link" href="#">
-            <span class="book-id hidden">${_id}</span>
-              ${bookCover}
-            <h4 class="top-books-category-item-title">${title}</h4>
-            <p class="top-books-category-item-author">${author}</p>
-          </a>
-        </li>`;
+  if (title === '') {
+    title = 'Missing book title';
+  }
+  if (author === '') {
+    author = 'Missing book author';
+  }
 
-  return bookCardsMarkup;
+  return bookCardMarkup(_id, bookCover, title, author);
+}
+
+function bookCardMarkup(_id, bookCover, title, author) {
+  return `<li class="top-books-category-item" data-id=${_id}>
+    <a class="top-books-category-item-link" href="#">
+        ${bookCover}
+      <h4 class="top-books-category-item-title">${title}</h4>
+      <p class="top-books-category-item-author">${author}</p>
+    </a>
+  </li>`;
 }
 
 function bookCoverMarkup(book_image, bookIcon) {
@@ -53,7 +71,6 @@ function bookCoverMarkup(book_image, bookIcon) {
       <p class="book-img-overlay">Quick view</p>
     </div>`;
 
-  // book_image = '';
   if (book_image === '') {
     book_image = bookIcon;
 
