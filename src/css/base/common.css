@@ -1,8 +1,19 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
 
+:root {
+  --dark-category-accent-color: #eac645;
+  --light-category-accent-color: #4f2ee8;
+  --dark-background-color: #202024;
+  --light-background-color: #f6f6f6;
+  --text-color: #111111;
+  --light-lift-color: #e0e0e0;
+  --titles-color: #b4afaf;
+  --button-accent-text-color: #ffffff;
+}
+
 body {
   font-family: 'DM Sans', sans-serif;
-  color: #111111;
+  color: var(--text-color);
   background-color: #f3f3f3;
 }
 
@@ -21,19 +32,14 @@ body {
 
 @media screen and (min-width: 1440px) {
   .container {
-    max-width: 1200px;
+    max-width: 1440px;
     padding: 0 24px;
   }
 }
 
-.main-wrapper {
-  display: flex;
-  flex-direction: column;
-}
-
 @media screen and (min-width: 1440px) {
   .main-wrapper {
-    flex-direction: row;
+    display: flex;
     gap: 40px;
   }
 }
@@ -44,7 +50,7 @@ body {
 }
 
 .accent-color {
-  color: #4f2ee8;
+  color: var(--light-category-accent-color);
 }
 
 .hidden {
@@ -52,38 +58,88 @@ body {
   visibility: none;
 }
 
-.is-hidden {
-  display: none !important;
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
 
-/* :root {
-  --dark-background-color: #1e1823;
-  --light-background-color: #e2e2e2;
-  --primary-text-color: #111111;
-  --contrast-color: #fd9222;
-  --primary-hover-color: #fcf1e0;
-  --primary-white-color: #ffffff;
-  --secondary-white-color: #fafafa;
-  --dark-white: rgba(255, 255, 255, 0.7);
-  --transition-timing: 250ms;
-  --transition-function: cubic-bezier(0.4, 0, 0.2, 1);
+/* buttons: SEE MORE, ADD TO SHOPPING LIST, REMOVE FROM THE SHOPPING LIST*/
+
+.buttons {
+  font-size: 18px;
+  font-style: bold;
+  line-height: calc(24 / 18);
+  letter-spacing: -1%;
+  color: var(--text-color);
+  font-family: inherit;
+  padding: 20px 0px;
+  border-radius: 40px;
+  border: 2px;
 }
-body {
-  font-family: 'Montserrat', sans-serif;
+
+.buttons:hover,
+.buttons:focus {
+  background-color: var(--light-category-accent-color);
+  color: var(--button-accent-text-color);
   font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 1.29;
-  letter-spacing: -0.02em;
-  color: var(--primary-text-color);
-  background-color: var(--secondary-white-color);
 }
 
-h2 {
-  font-weight: 600;
-  font-size: 20px;
-  line-height: 1.2;
-  text-align: center;
-  letter-spacing: -0.03em;
-  text-transform: uppercase;
+/* buttons HOME, SHOPPING LIST */
+
+.header-buttons-light {
+  font-size: 14px;
+  font-style: normal;
+  line-height: calc(18 / 14);
+  letter-spacing: -4%;
+  color: var(--text-color);
+  font-family: inherit;
+  padding: 8px 16px;
+  border-radius: 36px;
+  border: 2px;
+  display: flex;
+  gap: 8px;
+}
+
+.header-buttons-light:hover,
+.header-buttons-light:focus {
+  background-color: var(--dark-category-accent-color);
+  font-style: bold;
+}
+
+.header-buttons-dark {
+  font-size: 14px;
+  font-style: normal;
+  line-height: calc(18 / 14);
+  letter-spacing: -4%;
+  color: var(--button-accent-text-color);
+  font-family: inherit;
+  padding: 8px 16px;
+  border-radius: 36px;
+  border: 2px;
+  display: flex;
+  gap: 8px;
+}
+
+.header-buttons-dark:hover,
+.header-buttons-dark:focus {
+  background-color: var(--dark-category-accent-color);
+  color: var(--text-color);
+  font-style: bold;
+}
+
+/* pagination buttons */
+
+/* .menu-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 72px;
 } */

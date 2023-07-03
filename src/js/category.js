@@ -1,77 +1,107 @@
-import { fetchCategory, fetchTopBooks } from './books-api';
+import { fetchCategory } from './books-api';
+import { createCategoryMarkup } from './gallery-markup';
+import { errorMessage } from './categories-list';
+import { loader } from './loader';
 
 const categoriesListEl = document.querySelector('.categories-list');
 const topBooksEl = document.querySelector('.top-books');
-const categoryBooksListEl = document.querySelector('.category-books-list');
+const categoryEl = document.querySelector('.category');
 
 categoriesListEl.addEventListener('click', onChooseCategory);
+topBooksEl.addEventListener('click', onChooseCategory);
 
-async function onChooseCategory(evt) {
-  const selectedCategoryName = evt.target.textContent;
+let selectedCategoryName = '';
 
-  console.log(selectedCategoryName);
+export async function onChooseCategory(e) {
+  e.preventDefault();
+
+  if (e.target.classList.contains('categories-list-link')) {
+    chooseCategoryFromList(e);
+  } else if (e.target.classList.contains('top-books-category-btn')) {
+    chooseCategoryFromBestsellers(e);
+  } else {
+    return;
+  }
+
+  if (selectedCategoryName === 'All categories') {
+    categoryEl.innerHTML = '';
+    topBooksEl.classList.remove('visually-hidden');
+    scroll(topBooksEl);
+    return;
+  }
 
   try {
-    if (selectedCategoryName === 'All categories') {
-      const response = await fetchTopBooks();
-      console.log(response);
+    topBooksEl.classList.add('visually-hidden');
+    categoryEl.innerHTML = loader.loaderEl;
 
-      renderMainGallery(response);
-    } else {
-      const response = await fetchCategory(selectedCategoryName);
+    const response = await fetchCategory(selectedCategoryName);
 
-      console.log(response);
-
-      categoryBooksListEl.classList.remove('hidden');
-      renderCategoryGallery(response);
-    }
+    renderCategoryGallery(response);
+    scroll(categoryEl);
   } catch (error) {
-    // errorMessage();
+    categoryEl.innerHTML = '';
+    errorMessage();
     console.error(error);
   }
 }
 
-function renderMainGallery(data) {
-  const galleryMainMarkup = data
-    .map(book => createGalleryMainMarkup(book))
-    .join('');
-
-  topBooksEl.innerHTML = galleryMainMarkup;
-}
-
 function renderCategoryGallery(data) {
-  const galleryMainMarkup = data
-    .map(book => createGalleryCategoryMarkup(book.book_image))
-    .join('');
+  topBooksEl.classList.add('visually-hidden');
 
-  categoryBooksListEl.innerHTML = galleryMainMarkup;
+  let nameLastWord = '';
+  const wordsArray = selectedCategoryName.split(' ');
+  nameLastWord = wordsArray[wordsArray.length - 1];
+  wordsArray.length = wordsArray.length - 1;
+  const nameFirstPart = wordsArray.join(' ');
+
+  // FOR TEST
+  // data.length = 0;
+
+  let categoryMarkup = '';
+  if (data.length !== 0) {
+    categoryMarkup = data.map(book => createCategoryMarkup(book)).join('');
+  } else {
+    categoryMarkup = `<p class="no-books-message">Sorry, no books found<span>&#128532</span></p>`;
+  }
+
+  categoryEl.innerHTML = `<h2 class="category-title gallery-title">
+  ${nameFirstPart} <span class="accent-color">${nameLastWord}</span>
+  </h2>
+  <ul class="category-books-list">${categoryMarkup}</ul>`;
 }
 
-function createGalleryMainMarkup({ list_name, books }) {
-  return `
-  <p class="top-books-category-title">${list_name}</p>
-  <ul class="top-books-list">
-    <li class="top-books-item">
-      <a href="#"><img src="${books[0].book_image}"></a>
-    </li>
-    <li class="top-books-item">
-      <a href="#"><img src="${books[1].book_image}"></a>
-    </li>
-    <li class="top-books-item">
-      <a href="#"><img src="${books[2].book_image}"></a>
-    </li>
-    <li class="top-books-item">
-      <a href="#"><img src="${books[3].book_image}"></a>
-    </li>
-    <li class="top-books-item">
-      <a href="#"><img src="${books[4].book_image}"></a>
-    </li>
-  </ul >`;
+function chooseCategoryFromList(e) {
+  selectedCategoryName = e.target.textContent;
+
+  const item = categoriesListEl.querySelectorAll('.categories-item');
+  item.forEach(li => li.classList.remove('active'));
+
+  e.target.parentNode.classList.add('active');
 }
 
-function createGalleryCategoryMarkup(book_image) {
-  return `
-      <li class="top-book">
-        <a href="#"><img src='${book_image}'></a>
-      </li>`;
+function chooseCategoryFromBestsellers(e) {
+  selectedCategoryName = e.target.parentNode.querySelector(
+    '.top-books-category-title'
+  ).textContent;
+
+  const listItem = categoriesListEl.querySelectorAll('.categories-item');
+  listItem.forEach(li => {
+    const link = li.querySelector('.categories-list-link');
+    if (link.textContent === selectedCategoryName) {
+      li.classList.add('active');
+    } else {
+      li.classList.remove('active');
+    }
+  });
+}
+
+function scroll(el) {
+  if (window.innerWidth < 1440) {
+    el.scrollIntoView({ behavior: 'smooth' });
+  } else {
+    window.scroll({
+      top: 0,
+      behavior: 'smooth',
+    });
+  }
 }

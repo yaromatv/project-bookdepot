@@ -1,0 +1,20 @@
+.category-books-list {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-top: 40px;
+}
+
+@media screen and (min-width: 768px) {
+  .category-books-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 25px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .category-books-list {
+    column-gap: 24px;
+  }
+}

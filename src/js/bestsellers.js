@@ -1,7 +1,11 @@
 import { fetchTopBooks } from './books-api';
+import { createTopBooksMarkup } from './gallery-markup';
+import { onChooseCategory } from './category';
+import { errorMessage } from './categories-list';
+import { loader } from './loader';
 
-const topBooksEl = document.querySelector('.top-books-wrap');
-console.log('topBooksEl:', topBooksEl);
+const topBooksEl = document.querySelector('.top-books');
+const topBooksWrapEl = document.querySelector('.top-books-wrap');
 
 const debouncedHandleResize = debounce(handleResize, 150);
 
@@ -10,16 +14,13 @@ window.addEventListener('resize', debouncedHandleResize);
 handleResize();
 
 function handleResize() {
-  const windowWidth = window.innerWidth;
-  let bookCount = 1;
+  const bookCount = getBookCount();
 
-  if (windowWidth > 768) {
-    bookCount = 3;
+  if (topBooksEl.classList.contains('visually-hidden')) {
+    return;
   }
 
-  if (windowWidth > 1200) {
-    bookCount = 5;
-  }
+  topBooksWrapEl.innerHTML = '';
 
   showTopBooks(bookCount);
 }
@@ -33,13 +34,26 @@ function debounce(func, delay) {
 }
 
 async function showTopBooks(bookCount) {
+  topBooksEl.classList.remove('visually-hidden');
+
   try {
+    topBooksWrapEl.innerHTML = loader.loaderEl;
+
     const response = await fetchTopBooks();
-    console.log(response);
+
+    // FOR TEST
+    // response.length = 0;
+
+    if (response.length === 0) {
+      topBooksWrapEl.innerHTML = `<p class="no-books-message">Sorry, no books found<span>&#128532</span></p>`;
+      return;
+    }
 
     renderTopBooks(response, bookCount);
+    topBooksEl.addEventListener('click', onChooseCategory);
   } catch (error) {
-    // errorMessage();
+    topBooksWrapEl.innerHTML = '';
+    errorMessage();
     console.error(error);
   }
 }
@@ -49,27 +63,19 @@ function renderTopBooks(data, bookCount) {
     .map(category => createTopBooksMarkup(category, bookCount))
     .join('');
 
-  topBooksEl.innerHTML = topBooksMarkup;
+  topBooksWrapEl.innerHTML = topBooksMarkup;
 }
 
-function createTopBooksMarkup({ list_name, books }, bookCount) {
-  books.length = bookCount;
+export function getBookCount() {
+  let bookCount = 1;
 
-  const bookCardsMarkup = books
-    .map(({ book_image, title, author }) => {
-      return `<li class="top-books-category-item">
-        <div class="top-books-category-item-img-wrap">
-            <img class="top-books-category-item-img" src="${book_image}" alt="book cover"/>
-        </div>
-        <h4 class="top-books-category-item-title">${title}</h4>
-        <p class="top-books-category-item-author">${author}</p>
-      </li>`;
-    })
-    .join('');
+  if (window.innerWidth > 768) {
+    bookCount = 3;
+  }
 
-  return `<div class="top-books-category-wrap">
-  <h3 class="top-books-category-title">${list_name}</h3>
-    <ul class="top-books-category-list">${bookCardsMarkup}</ul>
-    <button class="top-books-category-btn">See more</button>
-  </div>`;
+  if (window.innerWidth > 1440) {
+    bookCount = 5;
+  }
+
+  return bookCount;
 }
