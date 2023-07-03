@@ -1,4 +1,7 @@
 // import { createTopBooksMarkup } from './gallery-markup.js';
+import amazon from '../images/png/amazon3xOpt.png';
+import appleBooks from '../images/png/openbook3xOpt.png';
+import bookShop from '../images/png/bookshop3xOpt.png';
 
 const refs = {
   modal: document.querySelector('.modal'),
@@ -6,18 +9,9 @@ const refs = {
   bookAuthor: document.querySelector('.book-author'),
   bookDescr: document.querySelector('.book-description'),
   // addListBtn: document.querySelector(".add-list-btn"),
-  testBtn: document.querySelector('.test-btn'),
-  backdrop: document.querySelector('.backdrop'),
   closeBtn: document.querySelector('.modal-close-btn'),
+  backdrop: document.querySelector('.backdrop'),
 };
-
-// const id = '643282b1e85766588626a080';
-
-// createTopBooksMarkup
-// eventListener на всі книжки
-// bookDetails(id)
-//createModalMarkup -
-// localStorage
 
 const galleryEl = document.querySelector('.gallery-section');
 console.log(galleryEl);
@@ -49,6 +43,8 @@ async function bookDetails(id) {
         description,
         author,
         buy_links,
+        book_image_width,
+        book_image_height,
       } = newData;
       const bookId = _id;
       console.log(bookId);
@@ -61,6 +57,8 @@ async function bookDetails(id) {
         list_name,
         description,
         buy_links,
+        book_image_width,
+        book_image_height,
       };
 
       addListBtn.addEventListener('click', () => {
@@ -110,10 +108,16 @@ function createModalMarkup(data) {
     ? book_image
     : 'https://images.unsplash.com/photo-1544376798-89aa6b82c6cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80';
 
-  let markup = `<div class="book-item">
+  let markup = `
+  <button type="button" class="modal-close-btn" data-modal-close>
+      <svg class="modal-close-btn-icon" width="100" height="100">
+        <use href="./images/sprite.svg#icon-x-close"></use>
+      </svg>
+    </button>
+  <div class="book-item">
           <div class="book-item-content">
             <div class="img-container">
-              <img class="book-cover" src="${bookImage}" max-width="287" height="408"  alt="book cover" />
+              <img class="book-cover" src="${bookImage}" max-width="287" max-height="408"  alt="book cover" />
             </div>
 
             <div class="book-details">
@@ -122,24 +126,33 @@ function createModalMarkup(data) {
               <p class="book-description">${descriptionText}</p>
               <ul class="online-stores">
                 <li class="online-shop-item">
-                  <a href="" class="online-store-link">
-                    <svg class="online-store-icon" width="16" height="16">
-                      <use href=""></use>
-                    </svg>
+                  <a href="${buy_links[0].url}" class="online-store-link">
+                     <img
+                            src="${amazon}"
+                            alt="logo Amazon"
+                            width="62"
+                            height="19"
+                            />
                   </a>
                 </li>
                 <li class="online-shop-item">
-                  <a href="" class="online-store-link">
-                    <svg class="online-store-icon" width="16" height="16">
-                      <use href=""></use>
-                    </svg>
+                 <a href="${buy_links[1].url}" class="online-store-link">
+                     <img
+                            src="${appleBooks}"
+                            alt="logo AppleBooks"
+                            width="62"
+                            height="19"
+                            />
                   </a>
                 </li>
                 <li class="online-shop-item">
-                  <a href="" class="online-store-link">
-                    <svg class="online-store-icon" width="16" height="16">
-                      <use href=""></use>
-                    </svg>
+                  <a href="${buy_links[2].url}" class="online-store-link">
+                     <img
+                            src="${bookShop}"
+                            alt="logo BookShop"
+                            width="62"
+                            height="19"
+                            />
                   </a>
                 </li>
               </ul>
@@ -153,13 +166,17 @@ function createModalMarkup(data) {
         </div>`;
 
   refs.modal.innerHTML = markup;
+
+  refs.closeBtn = document.querySelector('.modal-close-btn');
+  refs.closeBtn.addEventListener('click', onModalClose);
+  window.addEventListener('keydown', onEscKeyPress);
+  console.log(refs.closeBtn);
 }
 
 // bookDetails(id);
 
 // =============== MODAL LISTENERS =================
 
-// refs.testBtn.addEventListener('click', onModalOpen);
 galleryEl.addEventListener('click', onModalOpen);
 
 function onModalOpen(e) {
@@ -167,16 +184,15 @@ function onModalOpen(e) {
   if (targetElement) {
     window.addEventListener('keydown', onEscKeyPress);
     refs.backdrop.classList.toggle('is-hidden');
-
+    document.body.classList.add('modal-open');
     refs.backdrop.addEventListener('click', onBackdropClick);
-    refs.closeBtn.addEventListener('click', onModalClose);
-    window.addEventListener('keydown', onEscKeyPress);
   }
 }
 
 function onModalClose() {
   refs.modal.innerHTML = '';
   refs.backdrop.classList.toggle('is-hidden');
+  document.body.classList.remove('modal-open');
 
   refs.backdrop.removeEventListener('click', onModalClose);
   refs.closeBtn.removeEventListener('click', onModalClose);

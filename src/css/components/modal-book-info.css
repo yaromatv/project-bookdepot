@@ -4,6 +4,10 @@
   /* padding: 0; */
 }
 
+body.modal-open {
+  overflow: hidden;
+}
+
 .backdrop {
   position: fixed;
   top: 0;
@@ -147,6 +151,16 @@
   color: #ffffff;
   background-color: #4f2ee8;
 }
+
+.online-stores {
+  display: flex;
+  align-items: center;
+}
+.book-cover {
+  max-width: 287px;
+  max-height: 408px;
+}
+
 /* ======================================== */
 
 @media screen and (min-width: 768px) {
@@ -175,5 +189,9 @@
     padding-top: 20px;
     padding-bottom: 20px;
     white-space: nowrap;
+  }
+  .book-cover {
+    max-width: 192px;
+    max-height: 281px;
   }
 }
