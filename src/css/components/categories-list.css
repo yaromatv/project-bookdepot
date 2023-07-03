@@ -53,6 +53,12 @@ html {
   .categories-list {
     width: 335px;
     height: 472px;
+    gap: 32px;
+  }
+
+  .categories-item {
+    font-size: 18px;
+    line-height: 1.33em;
   }
 
   ::-webkit-scrollbar-thumb {
