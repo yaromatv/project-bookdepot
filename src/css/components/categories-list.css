@@ -9,19 +9,6 @@
   overflow-y: auto;
 }
 
-@media screen and (min-width: 768px) {
-  .categories-list {
-    width: 335px;
-    height: 472px;
-  }
-}
-
-@media screen and (min-width: 1440px) {
-  .categories-list {
-    width: 356px;
-  }
-}
-
 .categories-item {
   font-size: 16px;
   font-weight: 400;
@@ -38,6 +25,10 @@
 
 .categories-item:is(:hover, :focus) {
   text-decoration: underline;
+}
+
+.categories-list-link {
+  display: block;
 }
 
 html {
@@ -59,7 +50,18 @@ html {
 }
 
 @media screen and (min-width: 768px) {
+  .categories-list {
+    width: 335px;
+    height: 472px;
+  }
+
   ::-webkit-scrollbar-thumb {
     height: 167px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .categories-list {
+    width: 356px;
   }
 }

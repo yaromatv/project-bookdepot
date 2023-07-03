@@ -2,11 +2,12 @@ import { fetchTopBooks } from './books-api';
 import { createTopBooksMarkup } from './gallery-markup';
 import { onChooseCategory } from './category';
 import { errorMessage } from './categories-list';
+import { loader } from './loader';
 
 const topBooksEl = document.querySelector('.top-books');
 const topBooksWrapEl = document.querySelector('.top-books-wrap');
 
-export const debouncedHandleResize = debounce(handleResize, 150);
+const debouncedHandleResize = debounce(handleResize, 150);
 
 window.addEventListener('resize', debouncedHandleResize);
 
@@ -18,6 +19,8 @@ function handleResize() {
   if (topBooksEl.classList.contains('visually-hidden')) {
     return;
   }
+
+  topBooksWrapEl.innerHTML = '';
 
   showTopBooks(bookCount);
 }
@@ -34,10 +37,22 @@ async function showTopBooks(bookCount) {
   topBooksEl.classList.remove('visually-hidden');
 
   try {
+    topBooksWrapEl.innerHTML = loader.loaderEl;
+
     const response = await fetchTopBooks();
+
+    // FOR TEST
+    // response.length = 0;
+
+    if (response.length === 0) {
+      topBooksWrapEl.innerHTML = `<p class="no-books-message">Sorry, no books found<span>&#128532</span></p>`;
+      return;
+    }
+
     renderTopBooks(response, bookCount);
     topBooksEl.addEventListener('click', onChooseCategory);
   } catch (error) {
+    topBooksWrapEl.innerHTML = '';
     errorMessage();
     console.error(error);
   }
