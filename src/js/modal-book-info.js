@@ -1,3 +1,5 @@
+// import { createTopBooksMarkup } from './gallery-markup.js';
+
 const refs = {
   modal: document.querySelector('.modal'),
   bookName: document.querySelector('.book-name'),
@@ -9,7 +11,26 @@ const refs = {
   closeBtn: document.querySelector('.modal-close-btn'),
 };
 
-const id = '643282b1e85766588626a080';
+// const id = '643282b1e85766588626a080';
+
+// createTopBooksMarkup
+// eventListener на всі книжки
+// bookDetails(id)
+//createModalMarkup -
+// localStorage
+
+const galleryEl = document.querySelector('.gallery-section');
+console.log(galleryEl);
+
+galleryEl.addEventListener('click', onGalleryClick);
+
+function onGalleryClick(e) {
+  const targetElement = e.target.closest('.top-books-category-item');
+  if (targetElement) {
+    const dataId = targetElement.getAttribute('data-id');
+    bookDetails(dataId);
+  }
+}
 
 async function bookDetails(id) {
   return fetch(`https://books-backend.p.goit.global/books/${id}`)
@@ -134,31 +155,27 @@ function createModalMarkup(data) {
   refs.modal.innerHTML = markup;
 }
 
-bookDetails(id);
-
-// // const allBooks = document.querySelectorAll(".top-books-category-list");
-
-// // allBooks.addEventListener("click", (event) => {
-// //   if (event.target.tagName === "LI") {
-// //     const li = event.target;
-// //     const bookId = li.querySelector(".book-id").textContent;
-// //   }
-// // });
+// bookDetails(id);
 
 // =============== MODAL LISTENERS =================
 
-refs.testBtn.addEventListener('click', onModalOpen);
+// refs.testBtn.addEventListener('click', onModalOpen);
+galleryEl.addEventListener('click', onModalOpen);
 
-function onModalOpen() {
-  window.addEventListener('keydown', onEscKeyPress);
-  refs.backdrop.classList.toggle('is-hidden');
+function onModalOpen(e) {
+  const targetElement = e.target.closest('.top-books-category-item');
+  if (targetElement) {
+    window.addEventListener('keydown', onEscKeyPress);
+    refs.backdrop.classList.toggle('is-hidden');
 
-  refs.backdrop.addEventListener('click', onBackdropClick);
-  refs.closeBtn.addEventListener('click', onModalClose);
-  window.addEventListener('keydown', onEscKeyPress);
+    refs.backdrop.addEventListener('click', onBackdropClick);
+    refs.closeBtn.addEventListener('click', onModalClose);
+    window.addEventListener('keydown', onEscKeyPress);
+  }
 }
 
 function onModalClose() {
+  refs.modal.innerHTML = '';
   refs.backdrop.classList.toggle('is-hidden');
 
   refs.backdrop.removeEventListener('click', onModalClose);

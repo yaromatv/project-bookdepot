@@ -1,6 +1,7 @@
 import { fetchCategory } from './books-api';
 import { createCategoryMarkup } from './gallery-markup';
 import { errorMessage } from './categories-list';
+import { loader } from './loader';
 
 const categoriesListEl = document.querySelector('.categories-list');
 const topBooksEl = document.querySelector('.top-books');
@@ -25,16 +26,20 @@ export async function onChooseCategory(e) {
   if (selectedCategoryName === 'All categories') {
     categoryEl.innerHTML = '';
     topBooksEl.classList.remove('visually-hidden');
-    scroll();
+    scroll(topBooksEl);
     return;
   }
 
   try {
+    topBooksEl.classList.add('visually-hidden');
+    categoryEl.innerHTML = loader.loaderEl;
+
     const response = await fetchCategory(selectedCategoryName);
 
     renderCategoryGallery(response);
-    scroll();
+    scroll(categoryEl);
   } catch (error) {
+    categoryEl.innerHTML = '';
     errorMessage();
     console.error(error);
   }
@@ -49,7 +54,15 @@ function renderCategoryGallery(data) {
   wordsArray.length = wordsArray.length - 1;
   const nameFirstPart = wordsArray.join(' ');
 
-  const categoryMarkup = data.map(book => createCategoryMarkup(book)).join('');
+  // FOR TEST
+  // data.length = 0;
+
+  let categoryMarkup = '';
+  if (data.length !== 0) {
+    categoryMarkup = data.map(book => createCategoryMarkup(book)).join('');
+  } else {
+    categoryMarkup = `<p class="no-books-message">Sorry, no books found<span>&#128532</span></p>`;
+  }
 
   categoryEl.innerHTML = `<h2 class="category-title gallery-title">
   ${nameFirstPart} <span class="accent-color">${nameLastWord}</span>
@@ -70,11 +83,21 @@ function chooseCategoryFromBestsellers(e) {
   selectedCategoryName = e.target.parentNode.querySelector(
     '.top-books-category-title'
   ).textContent;
+
+  const listItem = categoriesListEl.querySelectorAll('.categories-item');
+  listItem.forEach(li => {
+    const link = li.querySelector('.categories-list-link');
+    if (link.textContent === selectedCategoryName) {
+      li.classList.add('active');
+    } else {
+      li.classList.remove('active');
+    }
+  });
 }
 
-function scroll() {
+function scroll(el) {
   if (window.innerWidth < 1440) {
-    topBooksEl.scrollIntoView({ behavior: 'smooth' });
+    el.scrollIntoView({ behavior: 'smooth' });
   } else {
     window.scroll({
       top: 0,

@@ -1,0 +1,30 @@
+.loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin-top: 22px;
+  font-size: 20px;
+  opacity: 0.5;
+  color: var(--light-category-accent-color);
+}
+
+.loader-img {
+  width: 48px;
+  height: 48px;
+  border: 5px solid var(--light-category-accent-color);
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
