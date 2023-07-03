@@ -92,8 +92,50 @@ body {
   font-style: normal;
 }
 
-/* button HOME */
-/* buttons: LOG OUT, SIGN UP */
+/* buttons HOME, SHOPPING LIST */
+
+.header-buttons-light {
+  font-size: 14px;
+  font-style: normal;
+  line-height: calc(18 / 14);
+  letter-spacing: -4%;
+  color: var(--text-color);
+  font-family: inherit;
+  padding: 8px 16px;
+  border-radius: 36px;
+  border: 2px;
+  display: flex;
+  gap: 8px;
+}
+
+.header-buttons-light:hover,
+.header-buttons-light:focus {
+  background-color: var(--dark-category-accent-color);
+  font-style: bold;
+}
+
+.header-buttons-dark {
+  font-size: 14px;
+  font-style: normal;
+  line-height: calc(18 / 14);
+  letter-spacing: -4%;
+  color: var(--button-accent-text-color);
+  font-family: inherit;
+  padding: 8px 16px;
+  border-radius: 36px;
+  border: 2px;
+  display: flex;
+  gap: 8px;
+}
+
+.header-buttons-dark:hover,
+.header-buttons-dark:focus {
+  background-color: var(--dark-category-accent-color);
+  color: var(--text-color);
+  font-style: bold;
+}
+
+/* pagination buttons */
 
 /* .menu-buttons {
   display: flex;
