@@ -30,7 +30,7 @@ body.modal-team-open {
     padding: 20px;
     width: 80%;
     max-width: 900px;
-    border: 2px solid tomato;
+    border: 2px solid #111111;
     border-radius: 18px;
     height: auto;
     transform: translate(-50%) scale(1);
@@ -61,12 +61,21 @@ body.modal-team-open {
     color: #4F2EE8;
 }
 
+.modal-team__close-icon {
+    fill: currentColor;
+}
+
 .modal-team__head-title {
-    font-size: 38px;
+    font-size: 28px;
     text-transform: capitalize;
     text-align: center;
     margin-top: 0;
     margin-bottom: 20px;
+
+}
+
+.modal-team__head-title .span {
+    color: #4F2EE8;
 }
 
 .modal-team__list {
@@ -79,47 +88,80 @@ body.modal-team-open {
 }
 
 .modal-team__item {
-    width: 175px;
+    width: 180px;
+    
+    
 }
 
 .modal-team__img-container {
     position: relative;
     display: flex;
-    align-items: start;
-    margin-bottom: 10px;
+    flex-direction: column;
+    /* flex-wrap: nowrap; */
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+    
 }
 
-.modal-team__img {
+
+/* .modal-team__img {
     object-fit: cover;
-    border-radius: 30%;
-}       
-
-.modal-team__link-github {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: opacity($color: #000000);
     border-radius: 50%;
-    /* color: #000000; */
-}
-
-.modal-team__icon-github {
-    fill: #000000;
     transform: rotate(0deg) scale(1);
     transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.modal-team__title {
+.modal-team__img:hover {
+    transform: rotate(360deg) scale(1.15);
+} */
 
+.modal-team__img {
+    object-fit: cover;
+    border-radius: 50%;
+    transform: scale(1);
+    transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-team__img:hover {
+    transform: scale(1.08);
+}
+
+
+.modal-team__title {
+    font-size: 16px;
+    margin-top: 10px;
 }
 
 .modal-team__position {
+    font-size: 14px;
     color: #B4AFAF;
     font-weight: 700;
     display: block;
     margin-bottom: 10px;
 }
 
-.modal-team__description {
-
+/* .modal-team__link-github {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: opacity($color: #000000);
+    border-radius: 50%;
+    color: #000000;
 }
+
+.modal-team__link-github:hover {
+    color: #4F2EE8
+}
+
+.modal-team__icon-github {
+    fill: currentColor;
+    transform: rotate(0deg) scale(1);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-team__icon-github .modal-team__link-github:hover {
+    transform: rotate(360deg) scale(1.5);
+} */
+
+
