@@ -22,18 +22,18 @@ navHreffsArr.forEach((navLink) => {
 
 
 document.addEventListener('DOMContentLoaded', function() {
-  var mobileMenuToggle = document.querySelector('.js-mobile-menu-toggle');
-  var mobileMenuClose = document.querySelector('.js-close-menu');
+  const mobileMenuToggle = document.querySelector('.js-mobile-menu-toggle');
+  const mobileMenuClose = document.querySelector('.js-close-menu');
 
   mobileMenuToggle.addEventListener('click', function() {
-    mobileMenuClose.classList.toggle('show');
+  mobileMenuClose.classList.toggle('show');
   });
 
   mobileMenuClose.addEventListener('click', function() {
     mobileMenuClose.classList.remove('show');
   });
     
-    mobileMenuToggle.addEventListener('click', function() {
+  mobileMenuToggle.addEventListener('click', function() {
   mobileMenuToggle.classList.add('hidden');
   mobileMenuClose.classList.remove('hidden');
 });
@@ -59,13 +59,8 @@ mobileMenuClose.addEventListener('click', function() {
   const toggleMenu = () => {
     const isMenuOpen =
       openMenuBtn.getAttribute('aria-expanded') === 'true' || false;
-    // openMenuBtn.setAttribute('aria-expanded', !isMenuOpen);
     mobileMenu.classList.toggle('is-open');
 
-    // const scrollLockMethod = !isMenuOpen
-    //   ? 'disableBodyScroll'
-    //   : 'enableBodyScroll';
-    // bodyScrollLock[scrollLockMethod](document.body);
   };
 
   openMenuBtn.addEventListener('click', toggleMenu);
@@ -76,7 +71,6 @@ mobileMenuClose.addEventListener('click', function() {
     if (!e.matches) return;
     mobileMenu.classList.remove('is-open');
     openMenuBtn.setAttribute('aria-expanded', false);
-    // bodyScrollLock.enableBodyScroll(document.body);
   });
 })();
 
