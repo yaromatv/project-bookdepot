@@ -1,4 +1,12 @@
-[data-theme='dark'] main{
+[data-theme='dark'] main {
+  background-color: var(--dark-background-color);
+  transition: 0.3s;
+}
+
+[data-theme='dark'] .gallery-title {
+  color: var(--light-background-color);
+}
+
 
     background-color: var(--dark-background-color);
     transition: 0.3s;
@@ -23,34 +31,35 @@
       
     }
 
-    [data-theme='dark'] .top-books-category-item-title {
-      color: var(--button-accent-text-color);
-    }
 
-    [data-theme='dark'] .top-books-category-btn{
-      color: var(--button-accent-text-color);
-    }
-    /* [data-theme='dark'] .top-books-category-btn:is(:hover, :focus){
+[data-theme='dark'] .active {
+  color: var(--dark-category-accent-color);
+}
+
+[data-theme='dark'] .top-books-category-item-title {
+  color: var(--button-accent-text-color);
+}
+
+[data-theme='dark'] .top-books-category-btn {
+  color: var(--button-accent-text-color);
+}
+/* [data-theme='dark'] .top-books-category-btn:is(:hover, :focus){
       background-color: var(--dark-category-accent-color);
     } */
 
-    [data-theme='dark'] .modal{
-        background-color: var(--dark-background-color)
-    }
-    
-    [data-theme='dark'] .add-list-btn{
-background-color: inherit;
-color: var(--button-accent-text-color);
-    }
+[data-theme='dark'] .modal {
+  background-color: var(--dark-background-color);
+}
 
-    [data-theme='dark'] .book-name{
-color: var(--button-accent-text-color);
-    }
+[data-theme='dark'] .add-list-btn {
+  background-color: inherit;
+  color: var(--button-accent-text-color);
+}
 
-   .add-list-btn:hover:not(:focus){
-background-color: var(--light-category-accent-color);
-color: var(--button-accent-text-color);
-    }
+[data-theme='dark'] .book-name {
+  color: var(--button-accent-text-color);
+}
+
 
     [data-theme='dark'] .book-description{
       color: var(--button-accent-text-color);
@@ -89,3 +98,39 @@ fill: var(--button-accent-text-color);
       background: #E0E0E0;
       
     }
+
+.add-list-btn:hover:not(:focus) {
+  background-color: var(--light-category-accent-color);
+  color: var(--button-accent-text-color);
+}
+
+/* future delete */
+
+/* [data-theme='dark'] .switch {
+           background: var(--text-color);
+           border: 1.5px solid var(--button-accent-text-color);
+          border-radius: 0px 0px 8px 8px;
+          width: 100%;
+          height: 70px;
+           }
+           .switch{
+            width: 100%;
+          height: 70px;
+           }
+          
+#checkbox{
+    display: flex;
+    left: 50%;
+    width: 50px;
+    height: 50px;
+}
+
+.theme-switch{
+    display: flex;
+    text-align: center;
+    font-size: 30px;
+}
+
+[data-theme='dark'] p{
+    color: var(--button-accent-text-color);
+} */
