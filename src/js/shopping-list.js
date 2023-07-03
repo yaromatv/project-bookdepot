@@ -1,18 +1,13 @@
 import { booksRequest } from './books-api';
 import closeIcon from '../images/initial/x-close.svg';
-const linkEl = document.querySelector('.link-js');
-const listEl = document.querySelector('.shopping-list-js');
-linkEl.addEventListener('click', onLink);
 
-// Витягування даних з LocalStorage при переході на сторінку "Shopping list"
-function onLink(evt) {
-  evt.preventDefault();
-  const myArray = JSON.parse(localStorage.getItem('shoppingList')) || [];
-  console.log(myArray);
-  const markup = createMarkup(myArray);
-  listEl.innerHTML = markup;
-  addRemoveListeners();
-}
+const listEl = document.querySelector('.shopping-list-js');
+
+const myArray = JSON.parse(localStorage.getItem('shoppingList')) || [];
+const markup = createMarkup(myArray);
+listEl.innerHTML = markup;
+addRemoveListeners();
+
 // створення розмітки
 function createMarkup(arr) {
   if (arr.length > 0) {
@@ -63,11 +58,11 @@ function createMarkup(arr) {
       .join('');
   }
   return `
-        <div class="book-empty-list">
-          <p class="book-empty-description">
+        <div class="empty-list">
+          <p class="empty-desc">
           This page is empty, add some books and proceed to order.
           </p>
-          <div class="book-empty-img"></div>
+          <img src="/src/images/png/thispageisempty2xOpt.png" alt="this page is empty" width="265" height="198">
         </div>
       `;
 }

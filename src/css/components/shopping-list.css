@@ -45,6 +45,7 @@
 .description-shopping-list{
     margin-bottom: 8px;
     height: 74px;
+    text-overflow: ellipsis;
 }
 .author-shopping-list{
     font-style: italic;
