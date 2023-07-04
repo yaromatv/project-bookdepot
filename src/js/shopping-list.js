@@ -1,9 +1,14 @@
 import { booksRequest } from './books-api';
+
+import closeIcon from '../images/initial/x-close.svg';
+import '../js/dark-mode'
+
 import trashIcon from '../images/initial/trash.svg';
 import amazonIcon from '../images/png/amazon3xOpt.png';
 import appleBooksIcon from '../images/png/openbook3xOpt.png';
 import bookShopIcon from '../images/png/bookshop3xOpt.png';
 import bookEmptyIcon from '../images/png/thispageisempty2xOpt.png';
+
 
 const listEl = document.querySelector('.shopping-list-js');
 
