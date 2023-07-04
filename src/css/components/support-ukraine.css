@@ -1,0 +1,193 @@
+.support-ukraine-container {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 352px;
+  width: 335px;
+  padding-bottom: 20px;
+  padding-top: 24px;
+  padding-left: 40px;
+  padding-right: 40px;
+  overflow: hidden;
+  border-radius: 16px;
+  background: radial-gradient(
+    189.32% 190.93% at 59.76% -23.42%,
+    #4f2ee8 18.03%,
+    #fff 100%
+  );
+  box-shadow: 0px 10px 10px 0px rgba(245, 245, 247, 0.1);
+}
+
+.support-ukraine-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.support-ukraine-title {
+  display: inline;
+  margin-right: 12px;
+  color: var(--button-accent-text-color);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 32px;
+  letter-spacing: -0.04em;
+}
+
+.support-ukraine-emblem {
+  width: 20px;
+  height: 32px;
+  align-items: center;
+  animation: pulse 2s ease infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.6);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.fund-list-visible {
+  width: 170px;
+  height: 220px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.fund-list {
+  counter-reset: item;
+  color: var(--button-accent-text-color);
+  font-size: 14px;
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: -0.56px;
+}
+
+.fund::before {
+  counter-increment: item;
+  content: counter(item, decimal-leading-zero);
+}
+
+.fund {
+  flex-direction: row;
+  align-items: center;
+  gap: 14px;
+  display: flex;
+}
+
+.fund-link {
+  margin-left: 16px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.fund-image {
+  filter: brightness(0) invert(1);
+  -webkit-filter: brightness(0) invert(1);
+  height: 32px;
+  object-fit: contain;
+}
+
+.fund-scroll {
+  width: 32px;
+  height: 32px;
+  color: var(--button-accent-text-color);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 768px) {
+  .support-ukraine-container {
+    height: 472px;
+    padding-bottom: 14px;
+  }
+
+  .support-ukraine-header {
+    margin-bottom: 25px;
+  }
+  .fund-list-visible {
+    height: 320px;
+  }
+}
+
+@media screen and (min-width: 1158px) {
+  .support-ukraine-container {
+    width: 356px;
+    height: 490px;
+    padding-bottom: 24px;
+  }
+}
+
+/* ------------------Button------------------ */
+
+.support-ukraine-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* support-ukraine button DOWN */
+
+.button-arrow-down {
+  fill: var(--light-category-accent-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  transform: scale(0.7);
+  transition: all 2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* .support-ukraine-button:hover,
+  .button-arrow-down:focus {
+    background-color: var(--light-background-color);
+  } */
+
+/* support-ukraine button UP */
+.fund-scroll-up {
+  width: 32px;
+  height: 32px;
+  background-color: var(--light-category-accent-color);
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  padding: 0;
+  margin: 0 auto;
+  display: block;
+}
+
+
+.button-arrow-up {
+  fill: var(--button-accent-text-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(180deg) scale(0.7);
+  transition: all 2s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 32px;
+  height: 32px;
+}
+
+/* .fund-scroll-up:focus,
+  .button-arrow-up:hover {
+    fill: var(--primary-text-color-dark);
+    border-radius: 50%;
+  } */
