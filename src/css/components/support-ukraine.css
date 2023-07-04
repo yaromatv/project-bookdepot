@@ -81,7 +81,7 @@
 }
 
 .fund {
-display: flex;
+  display: flex;
   flex-direction: row;
   align-items: center;
   gap: 14px;
@@ -136,19 +136,18 @@ display: flex;
 
 /*-------------------------- Scroll bar--------------------------------------- */
 .fund-list-visible::-webkit-scrollbar {
-    width: 0%;
-    background-color: transparent;
-  }
-  
-  .fund-list-visible::-webkit-scrollbar-thumb {
-    background-color: transparent;
-  }
-  /*-------------------------- !Scroll bar!--------------------------------------- */
+  width: 0%;
+  background-color: transparent;
+}
+
+.fund-list-visible::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+/*-------------------------- !Scroll bar!--------------------------------------- */
 
 /* ------------------Button------------------ */
 
-.button-container{
-
+.button-container {
 }
 
 .support-ukraine-button {
@@ -189,7 +188,6 @@ display: flex;
   display: block;
 }
 
-
 .button-arrow-up {
   fill: var(--button-accent-text-color);
   display: flex;
@@ -206,3 +204,5 @@ display: flex;
     fill: var(--primary-text-color-dark);
     border-radius: 50%;
   } */
+
+/* del */
