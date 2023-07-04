@@ -73,3 +73,6 @@
   border-left: 1px solid var(--text-color);
 }
 
+.tui-page-btn.tui-is-selected.tui-last-child{
+  border-right: 2px solid var(--text-color);
+}
