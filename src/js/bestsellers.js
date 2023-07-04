@@ -7,6 +7,11 @@ import { loader } from './loader';
 const topBooksEl = document.querySelector('.top-books');
 const topBooksWrapEl = document.querySelector('.top-books-wrap');
 
+export let responseInitial = [];
+let bookCountInitial = getBookCount();
+
+showTopBooks(bookCountInitial);
+
 const debouncedHandleResize = debounce(handleResize, 150);
 
 window.addEventListener('resize', debouncedHandleResize);
@@ -14,15 +19,17 @@ window.addEventListener('resize', debouncedHandleResize);
 handleResize();
 
 function handleResize() {
-  const bookCount = getBookCount();
-
   if (topBooksEl.classList.contains('visually-hidden')) {
     return;
   }
 
-  topBooksWrapEl.innerHTML = '';
+  let bookCount = getBookCount();
 
-  showTopBooks(bookCount);
+  if (bookCountInitial !== bookCount) {
+    bookCountInitial = bookCount;
+    topBooksWrapEl.innerHTML = '';
+    showTopBooks(bookCount);
+  }
 }
 
 function debounce(func, delay) {
@@ -34,22 +41,19 @@ function debounce(func, delay) {
 }
 
 async function showTopBooks(bookCount) {
-  topBooksEl.classList.remove('visually-hidden');
-
   try {
     topBooksWrapEl.innerHTML = loader.loaderEl;
-
-    const response = await fetchTopBooks();
+    responseInitial = await fetchTopBooks();
 
     // FOR TEST
-    // response.length = 0;
+    // responseInitial.length = 0;
 
-    if (response.length === 0) {
+    if (responseInitial.length === 0) {
       topBooksWrapEl.innerHTML = `<p class="no-books-message">Sorry, no books found<span>&#128532</span></p>`;
       return;
     }
 
-    renderTopBooks(response, bookCount);
+    renderTopBooks(responseInitial, bookCount);
     topBooksEl.addEventListener('click', onChooseCategory);
   } catch (error) {
     topBooksWrapEl.innerHTML = '';
@@ -58,8 +62,18 @@ async function showTopBooks(bookCount) {
   }
 }
 
-function renderTopBooks(data, bookCount) {
-  const topBooksMarkup = data
+export function renderTopBooks(responseInitial, bookCount) {
+  const responseCurrentBooks = responseInitial.map(category => {
+    return {
+      list_name: category.list_name,
+      books: category.books.slice(0, bookCount),
+    };
+  });
+
+  topBooksEl.classList.remove('visually-hidden');
+  topBooksWrapEl.innerHTML = loader.loaderEl;
+
+  const topBooksMarkup = responseCurrentBooks
     .map(category => createTopBooksMarkup(category, bookCount))
     .join('');
 
@@ -69,11 +83,11 @@ function renderTopBooks(data, bookCount) {
 export function getBookCount() {
   let bookCount = 1;
 
-  if (window.innerWidth > 768) {
+  if (document.documentElement.clientWidth >= 768) {
     bookCount = 3;
   }
 
-  if (window.innerWidth > 1440) {
+  if (document.documentElement.clientWidth >= 1440) {
     bookCount = 5;
   }
 
