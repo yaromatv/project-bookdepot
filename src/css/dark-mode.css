@@ -101,6 +101,10 @@
   transition: 0.3s;
 }
 
+[data-theme='dark'] .title-shopping-list{
+color: var(--button-accent-text-color);
+}
+
 [data-theme='dark'] .add-list-btn {
   background-color: var(--dark-background-color);
   color: var(--button-accent-text-color);
