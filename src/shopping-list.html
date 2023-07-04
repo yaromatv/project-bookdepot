@@ -6,17 +6,23 @@
     <title>Shopping list</title>
 
     <link rel="icon" type="image/svg+xml" href="/src/favicon.svg" />
-    <link rel="stylesheet" href="./sass/index.scss" />
-
-    <script type="module" src="./index.js"></script>
+    <link rel="stylesheet" href="/src/css/index.css" />
   </head>
   <body>
     <!-- PARTIALS -->
     <include src="./partials/header.html"></include>
     <main>
+      <div class="container main-wrapper">
+        <h1 class="title-shopping-list">Shopping <span>List</span></h1>
+        <ul class="shopping-list-js"></ul>
+      </div>
       <include src="./partials/pagination.html"></include>
     </main>
     <include src="./partials/footer.html"></include>
+
+    <script type="module" src="/src/js/shopping-list.js"></script>
+
     <script type="module" src="./js/pagination.js"></script>
+
   </body>
 </html>
