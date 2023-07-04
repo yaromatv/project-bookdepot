@@ -50,8 +50,6 @@
   transition: 0.3s;
 }
 
-
-
 [data-theme='dark'] .book-name {
   color: var(--button-accent-text-color);
   transition: 0.3s;
@@ -101,8 +99,8 @@
   transition: 0.3s;
 }
 
-[data-theme='dark'] .title-shopping-list{
-color: var(--button-accent-text-color);
+[data-theme='dark'] .title-shopping-list {
+  color: var(--button-accent-text-color);
 }
 
 [data-theme='dark'] .add-list-btn {
@@ -129,13 +127,12 @@ color: var(--button-accent-text-color);
 
 [data-theme='dark'] .book-title,
 [data-theme='dark'] .description-shopping-list
-/* [data-theme='dark'] .tui-page-btn{ */{
-color: var(--button-accent-text-color);
-transition: 0.3s;
+/* [data-theme='dark'] .tui-page-btn{ */ {
+  color: var(--button-accent-text-color);
+  transition: 0.3s;
 }
 
-
-[data-theme='dark'] .tui-pagination .tui-page-btn{
+[data-theme='dark'] .tui-pagination .tui-page-btn {
   color: var(--button-accent-text-color);
   transition: 0.3s;
 }
@@ -166,20 +163,25 @@ transition: 0.3s;
   transition: 0.3s;
 }
 
-[data-theme='dark'] .tui-pagination .tui-first + .tui-prev:hover{
+[data-theme='dark'] .tui-pagination .tui-first + .tui-prev:hover {
   background-color: var(--button-accent-text-color);
   transition: 0.3s;
 }
 
 [data-theme='dark'] .tui-pagination .tui-next + .tui-last,
-.tui-pagination .tui-first + .tui-prev{
+.tui-pagination .tui-first + .tui-prev {
   border-left: 1px solid var(--text-color);
   transition: 0.3s;
 }
 
-[data-theme='dark'] .tui-page-btn.tui-is-selected.tui-last-child{
+[data-theme='dark'] .tui-page-btn.tui-is-selected.tui-last-child {
   border-right: 2px solid var(--text-color);
   transition: 0.3s;
+}
+
+[data-theme='dark'] .fund-image-amazon {
+  filter: brightness(0) invert(1);
+  -webkit-filter: brightness(0) invert(1);
 }
 
 /* 
