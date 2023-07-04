@@ -1,21 +1,21 @@
-import fund1 from '../images/funds-png/SaveTheChildren.png';
-import fund1x from '../images/funds-png/SaveTheChildren-2x.png';
-import fund2 from '../images/funds-png/projectHope.png';
-import fund2x from '../images/funds-png/projectHope-2x.png';
-import fund3 from '../images/funds-png/United24.png';
-import fund3x from '../images/funds-png/United24-2x.png';
-import fund4 from '../images/funds-png/InternationalMedicalCorps.png';
-import fund4x from '../images/funds-png/InternationalMedicalCorps.png';
-import fund5 from '../images/funds-png/MedicinsSansFrontiers.png';
-import fund5x from '../images/funds-png/MedicinsSansFrontiers-2x.png';
+import fund1 from '../images/funds-png/save-children.png';
+import fund1x from '../images/funds-png/save-children-2x.png';
+import fund2 from '../images/funds-png/project-hope.png';
+import fund2x from '../images/funds-png/project-hope-2x.png';
+import fund3 from '../images/funds-png/united24.png';
+import fund3x from '../images/funds-png/united24-2x.png';
+import fund4 from '../images/funds-png/international-medical-corps.png';
+import fund4x from '../images/funds-png/international-medical-corps-2x.png';
+import fund5 from '../images/funds-png/medicins-sans-frontiers.png';
+import fund5x from '../images/funds-png/medicins-sans-frontiers-2x.png';
 import fund6 from '../images/funds-png/razom.png';
 import fund6x from '../images/funds-png/razom-2x.png';
-import fund7 from '../images/funds-png/ActionAgainstHunger.png';
-import fund7x from '../images/funds-png/ActionAgainstHunger-2x.png';
-import fund8 from '../images/funds-png/WorldVision.png';
-import fund8x from '../images/funds-png/WorldVision-2x.png';
-import fund9 from '../images/funds-png/SergiyPrytula.png';
-import fund9x from '../images/funds-png/SergiyPrytula-2x.png';
+import fund7 from '../images/funds-png/action-against-hunger.png';
+import fund7x from '../images/funds-png/action-against-hunger-2x.png';
+import fund8 from '../images/funds-png/world-vision.png';
+import fund8x from '../images/funds-png/world-vision-2x.png';
+import fund9 from '../images/funds-png/sergiy-prytula.png';
+import fund9x from '../images/funds-png/sergiy-prytula-2x.png';
 
 export const fundList = [
     {

@@ -61,7 +61,7 @@
   width: 170px;
   height: 220px;
   overflow: hidden;
-  margin-bottom: 10px;
+  margin-bottom: 40px;
 }
 
 .fund-list {
@@ -81,10 +81,10 @@
 }
 
 .fund {
+display: flex;
   flex-direction: row;
   align-items: center;
   gap: 14px;
-  display: flex;
 }
 
 .fund-link {
@@ -134,7 +134,22 @@
   }
 }
 
+/*-------------------------- Scroll bar--------------------------------------- */
+.fund-list-visible::-webkit-scrollbar {
+    width: 0%;
+    background-color: transparent;
+  }
+  
+  .fund-list-visible::-webkit-scrollbar-thumb {
+    background-color: transparent;
+  }
+  /*-------------------------- !Scroll bar!--------------------------------------- */
+
 /* ------------------Button------------------ */
+
+.button-container{
+
+}
 
 .support-ukraine-button {
   display: flex;
