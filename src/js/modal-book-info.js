@@ -69,18 +69,38 @@ async function bookDetails(id) {
           book => book._id === bookId
         );
 
+        const addListBtnText = document.querySelector('.add-list-btn-text');
+
         if (isBookInShoppingList) {
           const updatedBooks = currentBooks.filter(book => book._id !== bookId);
           localStorage.setItem('shoppingList', JSON.stringify(updatedBooks));
           console.log('Book removed from shopping list!');
           addListBtn.textContent = 'Add to shopping list';
+
+          addListBtnText.classList.add('hidden');
+          addListBtnText.textContent = '';
         } else {
           currentBooks.push(bookInfo);
           localStorage.setItem('shoppingList', JSON.stringify(currentBooks));
           console.log('Book added to shopping list!');
           addListBtn.textContent = 'Remove from the shopping list';
+
+          addListBtnText.classList.remove('hidden');
+          addListBtnText.textContent =
+            'Congratulations! You have added the book to the shopping list. To delete, press the button "Remove from the shopping list".';
         }
       });
+
+      const currentBooks =
+        JSON.parse(localStorage.getItem('shoppingList')) || [];
+      const isBookInShoppingList = currentBooks.find(
+        book => book._id === bookId
+      );
+      if (isBookInShoppingList) {
+        addListBtn.textContent = 'Remove from the shopping list';
+      } else {
+        addListBtn.textContent = 'Add to shopping list';
+      }
 
       return newData;
     });
@@ -109,15 +129,15 @@ function createModalMarkup(data) {
     : 'https://images.unsplash.com/photo-1544376798-89aa6b82c6cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80';
 
   let markup = `
-  <button type="button" class="modal-close-btn" data-modal-close>
-      <svg class="modal-close-btn-icon" width="100" height="100">
-        <use href="./images/sprite.svg#icon-x-close"></use>
-      </svg>
-    </button>
-  <div class="book-item">
+  // <button type="button" class="modal-close-btn" data-modal-close>
+  //     <svg class="modal-close-icon" width="12" height="12">
+  //       <use class="modal-svg" href="./images/sprite.svg#icon-team-close"></use>
+  //     </svg>
+  //   </button>
+   <div class="book-item">
           <div class="book-item-content">
             <div class="img-container">
-              <img class="book-cover" src="${bookImage}" max-width="287" max-height="408"  alt="book cover" />
+              <img class="book-cover" src="${bookImage}" width="287" height="408"  alt="book cover" />
             </div>
 
             <div class="book-details">
@@ -126,7 +146,7 @@ function createModalMarkup(data) {
               <p class="book-description">${descriptionText}</p>
               <ul class="online-stores">
                 <li class="online-shop-item">
-                  <a href="${buy_links[0].url}" class="online-store-link">
+                  <a href="${buy_links[0].url}" target="_blank" rel="noreferrer noopener" class="online-store-link">
                      <img
                             src="${amazon}"
                             alt="logo Amazon"
@@ -136,7 +156,7 @@ function createModalMarkup(data) {
                   </a>
                 </li>
                 <li class="online-shop-item">
-                 <a href="${buy_links[1].url}" class="online-store-link">
+                 <a href="${buy_links[1].url}" target="_blank" rel="noreferrer noopener" class="online-store-link">
                      <img
                             src="${appleBooks}"
                             alt="logo AppleBooks"
@@ -146,7 +166,7 @@ function createModalMarkup(data) {
                   </a>
                 </li>
                 <li class="online-shop-item">
-                  <a href="${buy_links[2].url}" class="online-store-link">
+                  <a href="${buy_links[2].url}" target="_blank" rel="noreferrer noopener" class="online-store-link">
                      <img
                             src="${bookShop}"
                             alt="logo BookShop"
@@ -162,10 +182,18 @@ function createModalMarkup(data) {
             <button type="button" class="add-list-btn">
               Add to shopping list
             </button>
+            <p class="add-list-btn-text"></p>
           </div>
         </div>`;
 
   refs.modal.innerHTML = markup;
+
+  let svg = document.querySelector('.modal-svg');
+  console.log(svg);
+  svg.setAttribute('href', './images/sprite.svg#icon-team-close');
+  // svg.href = './images/sprite.svg#icon-team-close';
+  console.log(svg);
+  // refs.modal.insertAdjacentHTML('beforeend', markup);
 
   refs.closeBtn = document.querySelector('.modal-close-btn');
   refs.closeBtn.addEventListener('click', onModalClose);

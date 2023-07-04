@@ -1,109 +1,104 @@
 body.modal-team-open {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 .backdrop-team {
-    position: fixed;
-    z-index: 999;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    opacity: 1;
-    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
-        visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    overflow-y: scroll;
-
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  opacity: 1;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  overflow-y: scroll;
 }
 
 .backdrop-team--hidden {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
 
 .modal-team {
-    position: absolute;
-    top: 20px;
-    left: 50%;
-    padding: 20px;
-    width: 80%;
-    max-width: 900px;
-    border: 2px solid #111111;
-    border-radius: 18px;
-    height: auto;
-    transform: translate(-50%) scale(1);
-    background-color: #F6F6F6;
-    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1), background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  padding: 20px;
+  width: 80%;
+  max-width: 900px;
+  border: 2px solid #111111;
+  border-radius: 18px;
+  height: auto;
+  transform: translate(-50%) scale(1);
+  background-color: #f6f6f6;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-team .backdrop-team--hidden {
-    transform: translate(-50%, -50%) scale(0);
+  transform: translate(-50%, -50%) scale(0);
 }
 
 /* темную тему */
 
 .modal-team__close-btn {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    padding: 0;
-    border: none;
-    background-color: transparent;
-    display: flex;
-    cursor: pointer;
-    color: #000000;
-    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  display: flex;
+  cursor: pointer;
+  color: #000000;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-team__close-btn:hover {
-    color: #4F2EE8;
+  color: #4f2ee8;
 }
 
 .modal-team__close-icon {
-    fill: currentColor;
+  fill: currentColor;
 }
 
 .modal-team__head-title {
-    font-size: 28px;
-    text-transform: capitalize;
-    text-align: center;
-    margin-top: 0;
-    margin-bottom: 20px;
-
+  font-size: 28px;
+  text-transform: capitalize;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 20px;
 }
 
 .modal-team__head-title .span {
-    color: #4F2EE8;
+  color: #4f2ee8;
 }
 
 .modal-team__list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    padding: 0;
-    list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 0;
+  list-style: none;
 }
 
 .modal-team__item {
-    width: 180px;
-    
-    
+  width: 180px;
 }
 
 .modal-team__img-container {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    /* flex-wrap: nowrap; */
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 15px;
-    
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  /* flex-wrap: nowrap; */
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
 }
-
 
 /* .modal-team__img {
     object-fit: cover;
@@ -117,28 +112,27 @@ body.modal-team-open {
 } */
 
 .modal-team__img {
-    object-fit: cover;
-    border-radius: 50%;
-    transform: scale(1);
-    transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  object-fit: cover;
+  border-radius: 50%;
+  transform: scale(1);
+  transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-team__img:hover {
-    transform: scale(1.08);
+  transform: scale(1.08);
 }
 
-
 .modal-team__title {
-    font-size: 16px;
-    margin-top: 10px;
+  font-size: 16px;
+  margin-top: 10px;
 }
 
 .modal-team__position {
-    font-size: 14px;
-    color: #B4AFAF;
-    font-weight: 700;
-    display: block;
-    margin-bottom: 10px;
+  font-size: 14px;
+  color: #b4afaf;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 10px;
 }
 
 /* .modal-team__link-github {
@@ -163,5 +157,3 @@ body.modal-team-open {
 .modal-team__icon-github .modal-team__link-github:hover {
     transform: rotate(360deg) scale(1.5);
 } */
-
-
