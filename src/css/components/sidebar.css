@@ -2,25 +2,43 @@ a {
   text-decoration: none;
 }
 
+.sidebar-container {
+  max-width: 375px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
 .sidebar {
   display: flex;
   flex-direction: column;
-  padding-top: 104px;
+  width: 100%;
   gap: 40px;
 }
 
 @media screen and (min-width: 768px) {
+  .sidebar-container {
+    max-width: 768px;
+    padding: 0 32px;
+  }
+
   .sidebar {
     flex-direction: row;
-    justify-content: space-between;
-    padding-top: 112px;
+    gap: 32px;
+    width: 768px;
   }
 }
 
 @media screen and (min-width: 1440px) {
+  .sidebar-container {
+    /* max-width: 380px; */
+    width: 356px;
+    padding: 0;
+    /* padding-left: 24px; */
+  }
+
   .sidebar {
     flex-direction: column;
-    max-width: 356px;
+    width: 356px;
     justify-content: start;
     gap: 86px;
   }
