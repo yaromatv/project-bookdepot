@@ -7,8 +7,20 @@
   color: var(--light-background-color);
 }
 
+[data-theme='light'] main {
+  transition: 0.3s;
+}
+
+[data-theme='dark'] .gallery-title {
+  color: var(--light-background-color);
+}
+
 [data-theme='dark'] .categories-item {
   color: var(--button-accent-text-color);
+}
+
+[data-theme='dark'] .active {
+  color: var(--dark-category-accent-color);
 }
 
 [data-theme='dark'] .active {
@@ -37,6 +49,41 @@
 
 [data-theme='dark'] .book-name {
   color: var(--button-accent-text-color);
+}
+
+[data-theme='dark'] .book-description {
+  color: var(--button-accent-text-color);
+}
+
+[data-theme='dark'] .logo-text {
+  color: #f3f3f3;
+}
+
+[data-theme='dark'] .header {
+  background-color: var(--text-color);
+}
+
+[data-theme='dark'] .item-text {
+  color: var(--button-accent-text-color);
+}
+
+[data-theme='dark'] .shpng-list-logo {
+  fill: var(--button-accent-text-color);
+}
+
+[data-theme='dark'] .footer {
+  background-color: var(--dark-background-color);
+}
+
+[data-theme='dark'] .footer-copyright {
+  color: var(--button-accent-text-color);
+}
+
+[data-theme='dark'] ::-webkit-scrollbar-thumb {
+  background: var(--text-color);
+}
+::-webkit-scrollbar-thumb {
+  background: #e0e0e0;
 }
 
 .add-list-btn:hover:not(:focus) {

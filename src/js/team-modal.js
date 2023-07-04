@@ -1,5 +1,6 @@
 import { team } from './team-items';
-// import svgGithubUrl from '../images/sprite.svg';
+// import svgGithubUrl from '../images/team/icon-github.svg';
+// import svgGithubUrl from '../images/sprite.svg#icon-github';
 
 const openModalTeamLink = document.querySelector('.footer-link');
 const closeModalTeamBtn = document.querySelector('.modal-team__close-btn');
@@ -26,17 +27,14 @@ function onCloseModalTeam(evt) {
 function createMarkupTeam() {
   const markup = team
     .map(
-      ({ name, img, position, url }) => ` <li class="modal-team__item">
+      ({ name, img, position, url }) => `<li class="modal-team__item">
   <div class="modal-team__img-container">
+    <a target="_blank" href="${url}">
       <img class="modal-team__img" src="${img}" alt="${name}" width="150" height="150">
-      <a class="modal-team__link-github" target="_blank" href="${url}">
-              <svg class="modal-team__icon-github" width="24" height="24">
-              <use href="./images/sprite.svg#icon-lock"></use>
-          </svg></a>
-  </div>
-  
-  <h3 class="modal-team__title">${name}</h3>
+    </a>
+      <h3 class="modal-team__title">${name}</h3>
   <span class="modal-team__position">${position}</span>
+  </div>
 </li>`
     )
     .join('');
@@ -62,3 +60,16 @@ function closeModalTeam() {
   document.body.classList.remove('modal-team-open');
   window.removeEventListener('keyup', onKeyUp);
 }
+
+// `<li class="modal-team__item">
+//   <div class="modal-team__img-container">
+//       <img class="modal-team__img" src="${img}" alt="${name}" width="150" height="150">
+//       <a class="modal-team__link-github" target="_blank" href="${url}">
+//               <svg class="modal-team__icon-github" width="24" height="24">
+//               <use href="/src/images/team/icon-github.svg"></use>
+//           </svg></a>
+//   </div>
+
+//   <h3 class="modal-team__title">${name}</h3>
+//   <span class="modal-team__position">${position}</span>
+// </li>`;
