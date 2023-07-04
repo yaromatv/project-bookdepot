@@ -76,7 +76,7 @@ export const team = [
   },
 
   {
-    name: 'Artem Zaicev',
+    name: 'Artem Zaitsev',
     position: 'Developer',
     // description: 'JS, HTML, SCSS',
     img: image9,

@@ -25,7 +25,7 @@ body.modal-team-open {
 
 .modal-team {
     position: absolute;
-    top: 20px;
+    margin-top: 112px;
     left: 50%;
     padding: 20px;
     width: 80%;
