@@ -1,6 +1,6 @@
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
-import '../css/components/pagination.css;'
+import '../css/components/pagination.css';
 
 let visiblePages = 2;
 let itemsPerPage = 7;
