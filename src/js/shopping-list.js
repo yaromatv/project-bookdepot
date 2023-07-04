@@ -1,5 +1,9 @@
 import { booksRequest } from './books-api';
-import closeIcon from '../images/initial/x-close.svg';
+import trashIcon from '../images/initial/trash.svg';
+import amazonIcon from '../images/png/amazon3xOpt.png';
+import appleBooksIcon from '../images/png/openbook3xOpt.png';
+import bookShopIcon from '../images/png/bookshop3xOpt.png';
+import bookEmptyIcon from '../images/png/thispageisempty2xOpt.png';
 
 const listEl = document.querySelector('.shopping-list-js');
 
@@ -8,9 +12,9 @@ const markup = createMarkup(myArray);
 listEl.innerHTML = markup;
 addRemoveListeners();
 
-// створення розмітки
 function createMarkup(arr) {
-  if (arr.length > 0) {
+  const shoppingList = JSON.parse(localStorage.getItem('Shoppinglist'));
+  if (shoppingList || arr.length > 0) {
     return arr
       .map(
         ({
@@ -36,20 +40,20 @@ function createMarkup(arr) {
                 <p class="author-shopping-list">${author}</p>
                 <ul class="buy-links-box">
                   <li>
-                    <a class="" href="${urlLink1}"><img src="" alt="${nameLink1}"></a>
+                    <a class="" href="${urlLink1}"><img class="shopping-list-amazon-icon" src="${amazonIcon}" alt="${nameLink1}"></a>
                   </li>
                   <li>
-                    <a class="" href="${urlLink2}"><img src="" alt="${nameLink2}"></a>
+                    <a class="" href="${urlLink2}"><img class="shopping-list-apple-book-icon" src="${appleBooksIcon}" alt="${nameLink2}"></a>
                   </li>
                   <li>
-                    <a class="" href="${urlLink3}"><img src="" alt="${nameLink3}"></a>
+                    <a class="" href="${urlLink3}"><img class="shopping-list-books-shop-icon" src="${bookShopIcon}" alt="${nameLink3}"></a>
                   </li>
                 </ul>
               </div>
             </div>
             <button class="remove-shopping-list-btn removeBook-js" ">
               <svg width="16" height="16" class="remove-boc-icon">
-                <use href="${closeIcon}"></use>
+                <use href="${trashIcon}"></use>
               </svg>
             </button>
         </li>
@@ -58,11 +62,11 @@ function createMarkup(arr) {
       .join('');
   }
   return `
-        <div class="empty-list">
+        <div class="empty-shopping-list">
           <p class="empty-desc">
           This page is empty, add some books and proceed to order.
           </p>
-          <img src="/src/images/png/thispageisempty2xOpt.png" alt="this page is empty" width="265" height="198">
+          <img class ="book-empty" src="${bookEmptyIcon}" alt="this page is empty" width="265" height="198">
         </div>
       `;
 }
@@ -85,8 +89,24 @@ function removeDataFromShoppingList(evt) {
     cardBookEl.remove();
   }
   updateShoppingList();
+
+  // Оновлення розмітки, якщо список порожній
+  if (myArray.length === 0) {
+    listEl.innerHTML = createEmptyMarkup();
+  }
 }
-// Оновлення списку покупок
+
+function createEmptyMarkup() {
+  return `
+    <div class="empty-shopping-list">
+      <p class="empty-desc">
+        This page is empty, add some books and proceed to order.
+      </p>
+      <img class ="book-empty" src="${bookEmptyIcon}" alt="this page is empty" width="265" height="198">
+    </div>
+  `;
+}
+
 function updateShoppingList() {
   booksRequest()
     .then(data => {
