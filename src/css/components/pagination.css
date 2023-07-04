@@ -23,10 +23,6 @@
   border: 2px solid var(--text-color);
 }
 
-.tui-pagination .tui-is-selected:hover {
-  background-color: var(--dark-category-accent-color);
-  border: 2px solid var(--text-color);
-}
 
 .tui-pagination .tui-page-btn {
   border-radius: 50%;
@@ -36,7 +32,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px solid var(--text-color);
+  border: 1px solid var(--text-color);
   font-weight: 700;
   font-size: 18px;
 }
@@ -61,7 +57,7 @@
 .tui-pagination .tui-next,
 .tui-pagination .tui-last {
   background-color: var(--dark-category-accent-color);
-  border: 2px solid var(--text-color);
+  border: 1px solid var(--text-color);
 }
 
 .tui-page-btn.tui-is-selected {
@@ -69,3 +65,11 @@
   color: var(--button-accent-text-color);
   border: 2px solid var(--text-color);
 }
+.tui-pagination .tui-first + .tui-prev:hover{
+  background-color: var(--button-accent-text-color);
+}
+.tui-pagination .tui-next + .tui-last,
+.tui-pagination .tui-first + .tui-prev{
+  border-left: 1px solid var(--text-color);
+}
+
