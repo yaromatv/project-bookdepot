@@ -18,10 +18,6 @@ navHreffsArr.forEach((navLink) => {
 
 
 
-
-
-
-
 // !!!!!!!!!!!!!!!           close-btn in burger-menu          !!!!!!!!!!!!!!!!!!!
 
 
@@ -77,5 +73,10 @@ mobileMenuClose.addEventListener('click', function() {
     openMenuBtn.setAttribute('aria-expanded', false);
   });
 })();
+
+
+
+
+
 
 
