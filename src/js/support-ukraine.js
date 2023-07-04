@@ -1,4 +1,4 @@
-import Swiper, { Navigation } from 'swiper';
+// import Swiper, { Navigation } from 'swiper';
 // import 'swiper/css';
 // import 'swiper/css/navigation';
 
@@ -31,20 +31,20 @@ supportUkraineList.insertAdjacentHTML(
   createFundMarkup(fundList).join('')
 );
 
-const swiper = new Swiper('.my-swiper', {
-    direction: 'vertical',
-    spaceBetween: 20,
-    slidesPerView: 'auto',
+// const swiper = new Swiper('.my-swiper', {
+//     direction: 'vertical',
+//     spaceBetween: 20,
+//     slidesPerView: 'auto',
   
-    navigation: {
-      nextEl: '.swiper-button-down',
-      prevEl: '.swiper-button-up',
-    },
+//     navigation: {
+//       nextEl: '.swiper-button-down',
+//       prevEl: '.swiper-button-up',
+//     },
   
-    plugins: {
-      scrollContainer: true,
-    },
-  });
+//     plugins: {
+//       scrollContainer: true,
+//     },
+//   });
 
 const fundBtn = document.querySelector('.fund-scroll');  
 const fundScrollDownBtn = document.querySelector('.swiper-button-down');
