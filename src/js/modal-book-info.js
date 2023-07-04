@@ -127,7 +127,7 @@ function createModalMarkup(data) {
               <ul class="online-stores">
                 <li class="online-shop-item">
                   <a href="${buy_links[0].url}" class="online-store-link">
-                     <img
+                     <img 
                             src="${amazon}"
                             alt="logo Amazon"
                             width="62"

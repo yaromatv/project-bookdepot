@@ -1,5 +1,6 @@
 import { booksRequest } from './books-api';
 import closeIcon from '../images/initial/x-close.svg';
+import '../js/dark-mode'
 
 const listEl = document.querySelector('.shopping-list-js');
 
