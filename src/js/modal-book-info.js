@@ -1,8 +1,8 @@
 // import { createTopBooksMarkup } from './gallery-markup.js';
-import closeButton from '../images/png/x-close.png';
+// import closeButton from '../images/png/x-close.png';
 
-import amazon from '../images/png/amazon3xOpt.png';
-// import amazon from '../images/png/amazon-logo.png';
+// import amazon from '../images/png/amazon3xOpt.png';
+import amazon from '../images/png/amazon-logo.png';
 
 // import appleBooks from '../images/png/openbook3xOpt.png';
 import appleBooks from '../images/png/applebooks-logo.png';
@@ -134,11 +134,17 @@ function createModalMarkup(data) {
     ? book_image
     : 'https://images.unsplash.com/photo-1544376798-89aa6b82c6cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80';
 
+  //  <button type="button" class="modal-close-btn" data-modal-close>
+  //    <svg class="modal-close-icon" width="12" height="12">
+  //      <use href="./images/sprite.svg#icon-cross-btn"></use>
+  //    </svg>
+  //  </button>;
+
+  const modalContent = document.createElement('div');
+  modalContent.classList.add('modal-content');
+
   let markup = `
-  <button type="button" class="modal-close-btn" data-modal-close>
-   <img class="close-btn" src="${closeButton}" alt="close button" />
-        </button>
-  <div class="book-item">
+   <div class="book-item">
           <div class="book-item-content">
             <div class="img-container">
               <img class="book-cover" src="${bookImage}" width="287" height="408"  alt="book cover" />
@@ -158,6 +164,7 @@ function createModalMarkup(data) {
                             alt="logo Amazon"
                             width="62"
                             height="19"
+                            class="fund-image-amazon"
                             />
                   </a>
                 </li>
@@ -192,7 +199,12 @@ function createModalMarkup(data) {
           </div>
         </div>`;
 
-  refs.modal.innerHTML = markup;
+  // refs.modal.innerHTML = markup;
+  // refs.modal.insertAdjacentElement('beforeend', markup);
+  // refs.modal.querySelector('.modal-content').innerHTML = markup;
+
+  modalContent.innerHTML = markup;
+  refs.modal.appendChild(modalContent);
 
   refs.closeBtn = document.querySelector('.modal-close-btn');
   refs.closeBtn.addEventListener('click', onModalClose);
@@ -217,7 +229,13 @@ function onModalOpen(e) {
 }
 
 function onModalClose() {
-  refs.modal.innerHTML = '';
+  refs.modal.innerHTML = `<div class="modal-content">
+      <button type="button" class="modal-close-btn" data-modal-close>
+        <svg class="modal-close-icon" width="12" height="12">
+          <use href="./images/sprite.svg#icon-cross-btn"></use>
+        </svg>
+      </button>
+    </div>`;
   refs.backdrop.classList.toggle('is-hidden');
   document.body.classList.remove('modal-open');
 
