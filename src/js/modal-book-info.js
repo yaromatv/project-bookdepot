@@ -150,8 +150,10 @@ function createModalMarkup(data) {
               <p class="book-description">${descriptionText}</p>
               <ul class="online-stores">
                 <li class="online-shop-item">
+
                   <a href="${buy_links[0].url}" target="_blank" rel="noreferrer noopener" class="online-store-link">
                      <img
+
                             src="${amazon}"
                             alt="logo Amazon"
                             width="62"

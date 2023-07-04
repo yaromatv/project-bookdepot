@@ -14,16 +14,22 @@
   <body>
     <!-- PARTIALS -->
     <include src="./partials/header.html"></include>
-    <main>
-      <div class="container main-wrapper">
-        <aside class="sidebar">
-          <include src="./partials/categories-list.html"></include>
-          <include src="./partials/support-ukraine.html"></include>
+    <main class="main-wrapper">
+      <div class="main-box main-container">
+        <aside class="sidebar-section">
+          <div class="sidebar-container">
+            <div class="sidebar">
+              <include src="./partials/categories-list.html"></include>
+              <include src="./partials/support-ukraine.html"></include>
+            </div>
+          </div>
         </aside>
-        <div class="gallery-section">
-          <include src="./partials/bestsellers.html"></include>
-          <include src="./partials/category.html"></include>
-        </div>
+        <section class="gallery-section">
+          <div class="gallery-container">
+            <include src="./partials/bestsellers.html"></include>
+            <include src="./partials/category.html"></include>
+          </div>
+        </section>
       </div>
     </main>
     <include src="./partials/footer.html"></include>
