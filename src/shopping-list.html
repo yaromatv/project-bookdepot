@@ -14,17 +14,18 @@
     <!-- PARTIALS -->
     <include src="./partials/header.html"></include>
     <main>
-      <div class="container main-wrapper">
-        <h1 class="title-shopping-list">Shopping <span>List</span></h1>
-        <ul class="shopping-list-js"></ul>
+      <div class="shopping-list-container container">
+        <aside class="sidebar">
+          <include src="./partials/support-ukraine.html"></include>
+        </aside>
+        <div>
+          <h1 class="title-shopping-list">Shopping <span>List</span></h1>
+          <ul class="shopping-list-js"></ul>
+        </div>
       </div>
       <include src="./partials/pagination.html"></include>
     </main>
     <include src="./partials/footer.html"></include>
-
     <script type="module" src="/src/js/shopping-list.js"></script>
-
-    <script type="module" src="./js/pagination.js"></script>
-
   </body>
 </html>
