@@ -1,9 +1,11 @@
 import { fetchCategory } from './books-api';
+import { responseInitial, getBookCount, renderTopBooks } from './bestsellers';
 import { createCategoryMarkup } from './gallery-markup';
 import { errorMessage } from './categories-list';
 import { loader } from './loader';
 
 const categoriesListEl = document.querySelector('.categories-list');
+const galleryEl = document.querySelector('.gallery-section');
 const topBooksEl = document.querySelector('.top-books');
 const categoryEl = document.querySelector('.category');
 
@@ -25,8 +27,10 @@ export async function onChooseCategory(e) {
 
   if (selectedCategoryName === 'All categories') {
     categoryEl.innerHTML = '';
-    topBooksEl.classList.remove('visually-hidden');
-    scroll(topBooksEl);
+    scroll(galleryEl);
+    const bookCount = getBookCount();
+
+    renderTopBooks(responseInitial, bookCount);
     return;
   }
 
@@ -37,7 +41,7 @@ export async function onChooseCategory(e) {
     const response = await fetchCategory(selectedCategoryName);
 
     renderCategoryGallery(response);
-    scroll(categoryEl);
+    scroll(galleryEl);
   } catch (error) {
     categoryEl.innerHTML = '';
     errorMessage();
@@ -96,7 +100,14 @@ function chooseCategoryFromBestsellers(e) {
 }
 
 function scroll(el) {
-  if (window.innerWidth < 1440) {
+  if (document.documentElement.clientWidth <= 375) {
+    const position = el.getBoundingClientRect().top + window.scrollY - 40;
+
+    window.scrollTo({
+      top: position,
+      behavior: 'smooth',
+    });
+  } else if (document.documentElement.clientWidth <= 768) {
     el.scrollIntoView({ behavior: 'smooth' });
   } else {
     window.scroll({

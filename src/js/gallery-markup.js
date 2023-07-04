@@ -4,7 +4,6 @@ import bookIconMedium from '../images/png/book-icon-medium.png';
 import bookIconBig from '../images/png/book-icon-big.png';
 
 export function createTopBooksMarkup({ list_name, books }, bookCount) {
-  books.length = bookCount;
   const bookIcon = getBookIconSize(bookCount);
 
   // FOR TEST
