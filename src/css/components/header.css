@@ -7,6 +7,12 @@
     height: 64px;
 }
 
+
+.current {
+    background-color: var(--dark-category-accent-color);
+    color: #111111;
+}
+
 .header__container {
     width: 100%;
     height: 100%;
@@ -314,12 +320,12 @@ input:checked+.slider:before {
     background: none;
 }
 
-.current {
+/* .current {
     min-width: 72px;
     height: 34px;
     background: var(--dark-category-accent-color);
     border-radius: 36px;
-}
+} */
 
 .current-mob {
     color: #111111;

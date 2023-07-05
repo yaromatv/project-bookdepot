@@ -18,35 +18,33 @@
 
 
 
-const homeLink = document.querySelector('[data-page="home-list"]');
-const shoppingListLink = document.querySelector('[data-page="shpng-list"]');
+// const homeLink = document.querySelector('[data-page="home-list"]');
+// const shoppingListLink = document.querySelector('[data-page="shpng-list"]');
 
-const navHrefArr = document.querySelectorAll('.js-link');
-console.dir(navHrefArr);
+// const navHrefArr = document.querySelectorAll('.js-link');
+// console.dir(navHrefArr);
 
-navHrefArr.forEach((navLink) => {
-  if (navLink.href === navLink.baseURI) {
-    navLink.style.backgroundColor = "#EAC645";
-    navLink.style.color = "#111111";
-  } else {
-    navLink.style.backgroundColor = "transparent";
-    navLink.style.color = "#FFFFFF";
-  }
-});
+// navHrefArr.forEach((navLink) => {
+//   if (navLink.href === navLink.baseURI) {
+//     navLink.style.backgroundColor = "#EAC645";
+//     navLink.style.color = "#111111";
+//   } else {
+//     navLink.style.backgroundColor = "transparent";
+//     navLink.style.color = "#FFFFFF";
+//   }
+// });
 
-const currentURL = window.location.href;
+// const currentURL = window.location.href;
 
-if (homeLink && homeLink.href === currentURL) {
-  homeLink.style.backgroundColor = "#EAC645";
-  homeLink.style.color = "#111111";
-}
+// if (homeLink && homeLink.href === currentURL) {
+//   homeLink.style.backgroundColor = "#EAC645";
+//   homeLink.style.color = "#111111";
+// }
 
-if (shoppingListLink && shoppingListLink.href === currentURL) {
-  shoppingListLink.style.backgroundColor = "#EAC645";
-  shoppingListLink.style.color = "#111111";
-}
-
-
+// if (shoppingListLink && shoppingListLink.href === currentURL) {
+//   shoppingListLink.style.backgroundColor = "#EAC645";
+//   shoppingListLink.style.color = "#111111";
+// }
 
 
 
