@@ -12,9 +12,10 @@
   transition: 0.3s;
 }
 
-[data-theme='dark'] .header__container{
+[data-theme='dark'] .header{
   background-color: var(--text-color);
   transition: 0.3s;
+  border: 1.5px solid var(--button-accent-text-color);
 }
 
 
@@ -25,9 +26,9 @@ background-color: var(--dark-category-accent-color);
 [data-theme='dark'] .add-list-btn-text{
   color: rgb(255, 255, 255, 50%);
 }
-[data-theme='dark'] .header__container{
+/* [data-theme='dark'] .header__container{
   border: 1.5px solid var(--button-accent-text-color);
-  }
+  } */
 
   [data-theme='dark'] .modal-close-icon{
 fill: var(--button-accent-text-color);
