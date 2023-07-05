@@ -1,3 +1,12 @@
+.is-hidden{
+    display: none;
+}
+
+.shopping-list-container{
+    overflow: scroll;
+    padding-top: 104px;
+}
+
 .title-shopping-list span{
     color: var(--light-category-accent-color);
 }
@@ -100,9 +109,25 @@
     align-items: center;
 }
 
+/* .amazonLink{
+
+}
+
+.appleBooksLink{
+
+}
+
+.bookShopLink{
+
+} */
+
 .shopping-list-amazon-icon{
     width: 32px;
     height: 11px;
+}
+
+.shopping-list-amazon-icon:hover, .shopping-list-amazon-icon:focus{
+    color: #fff;
 }
 
 .shopping-list-apple-book-icon{
@@ -132,6 +157,11 @@
     stroke: #fff;
 }
 @media screen and (min-width: 768px) {
+
+    .shopping-list-container{
+        overflow: scroll;
+        padding-top: 120px;
+    }
 
     .title-shopping-list{
         font-size: 48px;
@@ -207,6 +237,20 @@
     }
 }
 @media screen and (min-width: 1440px){
+
+    .shopping-list-container{
+        display: flex;
+    }
+
+    .shopping-list-support-flex{
+        margin-left: 40px;
+        width: 100%;
+    }
+
+    .is-hidden{
+        display: block;
+    }
+
     .card-book-li{
     width: 996px;
     }
