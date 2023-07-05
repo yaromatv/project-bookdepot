@@ -1,7 +1,7 @@
 .tui-pagination {
   display: flex;
   justify-content: center;
-  margin-bottom: 40px;
+ 
 }
 .tui-page-btn:not(:last-child) {
   margin-right: 5px;
@@ -75,4 +75,10 @@
 
 .tui-page-btn.tui-is-selected.tui-last-child{
   border-right: 2px solid var(--text-color);
+}
+.tui-pagination{
+  margin: 0 auto;
+}
+.shopping-list-box{
+  padding-bottom: 40px;
 }
