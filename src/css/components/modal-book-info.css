@@ -47,7 +47,7 @@ body.modal-open {
 }
 
 .modal-close-btn {
-  position: absolute;
+  /* position: absolute;
   top: 12px;
   right: 12px;
   display: flex;
@@ -60,8 +60,32 @@ body.modal-open {
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 50%;
 
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1); */
+
+  position: absolute;
+  padding: 0;
+  top: 12px;
+  right: 12px;
+  border: none;
+  cursor: pointer;
+  transition: fill 0.3s ease;
+  stroke: (--text-color);
+  transition: stroke 0.3s ease;
+  background: transparent;
+  fill: var(--dark-theme-componemt);
 }
+
+.modal-close-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.modal-close-btn:hover .modal-close-icon:hover {
+  /* color: #4f2ee8;
+  stroke: #4f2ee8; */
+  fill: #4f2ee8;
+}
+
 .book-item {
   display: flex;
   flex-direction: column;
@@ -123,7 +147,8 @@ body.modal-open {
   align-items: center;
   margin-top: 40px;
 }
-.add-list-btn {
+.add-list-btn,
+.remove-list-btn {
   color: (--text-color);
   background-color: white;
   font-family: 'DM Sans', sans-serif;
@@ -168,36 +193,6 @@ body.modal-open {
   margin-top: 8px;
 }
 
-.close-item-btn {
-  position: absolute;
-  right: 32px;
-  top: 32px;
-  width: 32px;
-  height: 32px;
-  opacity: 1;
-  color: black;
-  fill: black;
-  stroke: black;
-}
-.close-item-btn:hover {
-  opacity: 1;
-}
-.close-item-btn:before,
-.close-item-btn:after {
-  position: absolute;
-  left: 15px;
-  content: ' ';
-  height: 33px;
-  width: 2px;
-  background-color: black;
-}
-.close-item-btn:before {
-  transform: rotate(45deg);
-}
-.close-item-btn:after {
-  transform: rotate(-45deg);
-}
-
 /* ======================================== */
 
 @media screen and (min-width: 768px) {
@@ -218,7 +213,8 @@ body.modal-open {
     flex-direction: column;
   }
 
-  .add-list-btn {
+  .add-list-btn,
+  .remove-list-btn {
     font-size: 18px;
     line-height: 1.33;
     letter-spacing: -0.18px;
@@ -227,6 +223,7 @@ body.modal-open {
     padding-bottom: 20px;
     white-space: nowrap;
   }
+
   .book-cover {
     max-width: 192px;
     max-height: 281px;
@@ -241,8 +238,14 @@ body.modal-open {
     right: 24px;
   }
 
+  .modal-close-icon {
+    width: 28px;
+    height: 28px;
+  }
+
   .add-list-btn-text {
     font-size: 12px;
     line-height: 1.16;
+    width: 324px;
   }
 }
