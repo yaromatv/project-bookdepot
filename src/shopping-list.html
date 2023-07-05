@@ -6,19 +6,17 @@
     <title>Shopping list</title>
 
     <link rel="icon" type="image/svg+xml" href="/src/favicon.svg" />
-    <link rel="stylesheet" href="/src/css/index.css" />
-
-    <script type="module" src="./index.js"></script>
+    <link rel="stylesheet" href="./css/index.css" />
   </head>
   <body>
     <!-- PARTIALS -->
     <include src="./partials/header.html"></include>
     <main>
       <div class="shopping-list-container container">
-        <aside class="sidebar">
+        <aside class="sidebar is-hidden">
           <include src="./partials/support-ukraine.html"></include>
         </aside>
-        <div>
+        <div class="shopping-list-support-flex">
           <h1 class="title-shopping-list">Shopping <span>List</span></h1>
           <ul class="shopping-list-js"></ul>
         </div>
@@ -27,6 +25,6 @@
     </main>
     <include src="./partials/footer.html"></include>
     <script type="module" src="/src/js/shopping-list.js"></script>
- <script type="module" src="./js/pagination.js"></script>
+    <script type="module" src="./js/pagination.js"></script>
   </body>
 </html>
