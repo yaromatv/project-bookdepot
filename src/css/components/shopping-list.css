@@ -127,7 +127,7 @@
 }
 
 .shopping-list-amazon-icon:hover, .shopping-list-amazon-icon:focus{
-    color: #fff;
+    filter: drop-shadow(2px 2px 2px #b1aeae);
 }
 
 .shopping-list-apple-book-icon{
@@ -135,9 +135,17 @@
     height: 16px;
 }
 
+.shopping-list-apple-book-icon:hover, .shopping-list-apple-book-icon:focus{
+    filter: drop-shadow(2px 2px 2px #b1aeae);
+}
+
 .shopping-list-books-shop-icon{
     width: 16px;
     height: 16px;
+}
+
+.shopping-list-books-shop-icon:hover, .shopping-list-books-shop-icon:focus{
+    filter: drop-shadow(2px 2px 2px #b1aeae);
 }
 
 .remove-shopping-list-btn {
@@ -151,7 +159,16 @@
     align-items: center;
     border-radius: 50%;
     background-color: var(--light-category-accent-color);
+    cursor: pointer;
+    transition: fill 0.3s ease;
+    transition: stroke 0.3s ease;
 }
+
+.remove-shopping-list-btn:hover, .remove-shopping-list-btn:focus{
+    box-shadow: 0 3px 3px #00000026;
+    scale: 1.1;
+}
+
 .remove-boc-icon{
     fill: #4F2EE8;
     stroke: #fff;
