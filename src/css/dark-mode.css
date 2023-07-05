@@ -179,9 +179,33 @@
   transition: 0.3s;
 }
 
-[data-theme='dark'] .fund-image-amazon {
+[data-theme='dark'] .bookshop-image-amazon {
   filter: brightness(0) invert(1);
   -webkit-filter: brightness(0) invert(1);
+}
+
+.bookshop-image-amazon:hover {
+  filter: drop-shadow(2px 2px 2px #b1aeae);
+}
+
+[data-theme='dark'] .bookshop-image-amazon:hover {
+  filter: drop-shadow(2px 2px 2px #c2bcbc);
+}
+
+.bookshop-image-applebooks:hover {
+  filter: drop-shadow(2px 2px 2px #b1aeae);
+}
+
+[data-theme='dark'] .bookshop-image-applebooks:hover {
+  filter: drop-shadow(2px 2px 2px #c2bcbc);
+}
+
+.bookshop-image-bookshop:hover {
+  filter: drop-shadow(2px 2px 2px #b1aeae);
+}
+
+[data-theme='dark'] .bookshop-image-bookshop:hover {
+  filter: drop-shadow(2px 2px 2px #c2bcbc);
 }
 
 /* 
