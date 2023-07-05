@@ -178,7 +178,7 @@
 }
 @media screen and (min-width: 768px) {
   .shopping-list-container {
-    overflow: scroll;
+    /* overflow: scroll; */
     padding-top: 120px;
   }
 
