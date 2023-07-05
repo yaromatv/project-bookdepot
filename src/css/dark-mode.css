@@ -12,11 +12,22 @@
   transition: 0.3s;
 }
 
-[data-theme='dark'] .header{
+[data-theme='dark'] .header__container{
   background-color: var(--text-color);
   transition: 0.3s;
   border: 1.5px solid var(--button-accent-text-color);
 }
+
+[data-theme='dark'] .logo-text-victory,
+[data-theme='dark'] .menu-btn{
+  fill: var(--button-accent-text-color);
+  }
+  
+  /* .menu-btn{
+    {
+fill: var(--button-accent-text-color);
+} */
+
 
 
 /* .js-link{
@@ -177,6 +188,7 @@ fill: var(--button-accent-text-color);
 [data-theme='dark'] .tui-pagination .tui-page-btn {
   color: var(--button-accent-text-color);
   transition: 0.3s;
+  border: 1px solid var(--button-accent-text-color);
 }
 
 [data-theme='dark'] .tui-pagination .tui-ico-next,
@@ -201,7 +213,7 @@ fill: var(--button-accent-text-color);
 [data-theme='dark'] .tui-page-btn.tui-is-selected {
   background-color: var(--button-accent-text-color);
   color: var(--text-color);
-  border: 2px solid var(--text-color);
+  border: 2px solid var(--button-accent-text-color);
   transition: 0.3s;
 }
 
@@ -214,6 +226,10 @@ fill: var(--button-accent-text-color);
 .tui-pagination .tui-first + .tui-prev {
   border-left: 1px solid var(--text-color);
   transition: 0.3s;
+}
+
+[data-theme='dark'] .close-mob-menu-victory{
+  fill: var(--button-accent-text-color);
 }
 
 [data-theme='dark'] .tui-page-btn.tui-is-selected.tui-last-child {
