@@ -23,6 +23,8 @@ const bookItemWrapper = document.querySelector('.book-item-wrapper');
 const galleryEl = document.querySelector('.gallery-section');
 console.log(galleryEl);
 
+const modalContent = document.querySelector('.modal-content');
+
 galleryEl.addEventListener('click', onGalleryClick);
 
 function onGalleryClick(e) {
@@ -38,6 +40,7 @@ async function bookDetails(id) {
     .then(response => response.json())
     .then(data => {
       createModalMarkup(data);
+      refs.backdrop.classList.toggle('is-hidden');
       return data;
     })
     .then(newData => {
@@ -89,7 +92,6 @@ async function bookDetails(id) {
         } else {
           currentBooks.push(bookInfo);
           localStorage.setItem('shoppingList', JSON.stringify(currentBooks));
-          console.log('Book added to shopping list!');
           addListBtn.textContent = 'Remove from the shopping list';
 
           addListBtnText.classList.remove('visually-hidden');
@@ -211,7 +213,7 @@ function onModalOpen(e) {
   const targetElement = e.target.closest('.top-books-category-item');
   if (targetElement) {
     window.addEventListener('keydown', onEscKeyPress);
-    refs.backdrop.classList.toggle('is-hidden');
+
     document.body.classList.add('modal-open');
     refs.backdrop.addEventListener('click', onBackdropClick);
   }
@@ -219,6 +221,8 @@ function onModalOpen(e) {
 
 function onModalClose() {
   bookItemWrapper.innerHTML = '';
+  // refs.closeBtn.classList.add('visually-hidden');
+
   refs.backdrop.classList.toggle('is-hidden');
   document.body.classList.remove('modal-open');
 
