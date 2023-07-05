@@ -12,14 +12,14 @@ import bookEmptyIcon from '../images/png/thispageisempty2xOpt.png';
 const listEl = document.querySelector('.shopping-list-js');
 
 const myArray = JSON.parse(localStorage.getItem('shoppingList')) || [];
-const markup = createMarkup(myArray);
-listEl.innerHTML = markup;
-addRemoveListeners();
+updateMarkup(myArray);
 
-function createMarkup(arr) {
+
+function updateMarkup(arr) {
+  let markup;
   const shoppingList = JSON.parse(localStorage.getItem('Shoppinglist'));
   if (shoppingList || arr.length > 0) {
-    return arr
+    markup = arr
       .map(
         ({
           _id,
@@ -63,7 +63,7 @@ function createMarkup(arr) {
       )
       .join('');
   }
-  return `
+  else markup = `
         <div class="empty-shopping-list">
           <p class="empty-desc">
           This page is empty, add some books and proceed to order.
@@ -71,6 +71,9 @@ function createMarkup(arr) {
           <img class ="book-empty" src="${bookEmptyIcon}" alt="this page is empty" width="265" height="198">
         </div>
       `;
+    
+      listEl.innerHTML = markup;
+      addRemoveListeners();
 }
 function addRemoveListeners() {
   const removeButtons = document.querySelectorAll('.removeBook-js');
@@ -109,11 +112,8 @@ function createEmptyMarkup() {
 }
 
 function updateShoppingList() {
-  booksRequest()
-    .then(data => {
-      const markup = createMarkup(data);
-      listEl.innerHTML = markup;
-      addRemoveListeners();
-    })
-    .catch(err => console.log(err));
-}
+updateMarkup (booksRequest())
+};
+
+
+export { updateMarkup };

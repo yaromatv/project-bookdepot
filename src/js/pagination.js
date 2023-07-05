@@ -2,41 +2,37 @@ import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 import '../css/components/pagination.css';
 
+import { updateMarkup } from './shopping-list.js';
+
+
 const shoppingList = localStorage.getItem('shoppingList');
 const shoppingListArray = JSON.parse(shoppingList);
-console.log(shoppingListArray.length);
 
 let visiblePages = 2;
-let itemsPerPage = 7;
+let itemsPerPage = 4;
 if (window.innerWidth >= 768) {
   visiblePages = 3;
-  itemsPerPage = 8;
+  itemsPerPage = 3;
 }
 const options = {
-  totalItems: 500,
+  totalItems: shoppingListArray.length,
   itemsPerPage,
   visiblePages,
 
 };
 
-
+console.log(options);
 const container = document.getElementById('tui-pagination-container');
-
-const instance = new Pagination(container, options);
-
-
-console.log(instance.getCurrentPage());
+const pagination = new Pagination(container, options);
 
 
-console.log(shoppingList);
 
-function visiblePagination() {
-  if (!localStorage.getItem('shoppingList') || shoppingList.length === 0) {
-  container.style.display = 'none';}
-else{container.style.display = 'flex';}
-}
+pagination.on('beforeMove', (event) => {
+  const currentPage = event.page;
+console.log(event);
+updateMarkup(shoppingListArray
+  .slice((currentPage-1)*itemsPerPage, currentPage*itemsPerPage));
+console.log((currentPage-1)*itemsPerPage, currentPage*itemsPerPage);
+});
 
-const totalPages = Math.ceil(shoppingListArray.length / itemsPerPage);
-const paginatedItems = Array.from({ length: totalPages }, (_, i) =>
-  shoppingListArray.slice(i * itemsPerPage, (i + 1) * itemsPerPage)
-);
+pagination.movePageTo(1);
