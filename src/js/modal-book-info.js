@@ -218,6 +218,7 @@ function onModalOpen(e) {
 }
 
 function onModalClose() {
+  bookItemWrapper.innerHTML = '';
   refs.backdrop.classList.toggle('is-hidden');
   document.body.classList.remove('modal-open');
 
