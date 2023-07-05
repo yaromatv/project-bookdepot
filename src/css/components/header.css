@@ -62,8 +62,8 @@
     border-radius: 36px;
     width: 72px;
     height: 34px;
-
     cursor: pointer;
+    transition: transform .35s cubic-bezier(.4, 0, .2, 1), color .35s cubic-bezier(.4, 0, .2, 1), box-shadow .35s cubic-bezier(.4, 0, .2, 1), text-shadow .35s cubic-bezier(.4, 0, .2, 1), font-size .35s cubic-bezier(.4, 0, .2, 1);
 }
 
 .item-text {
