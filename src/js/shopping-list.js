@@ -4,7 +4,7 @@ import '../js/dark-mode';
 
 import trashIcon from '../images/initial/trash.svg';
 import amazonIcon from '../images/png/amazon-logo.png';
-import appleBooksIcon from '../images/png/openbook3xOpt.png';
+import appleBooksIcon from '../images/png/applebooks-logo.png';
 import bookShopIcon from '../images/png/bookshop3xOpt.png';
 import bookEmptyIcon from '../images/png/thispageisempty2xOpt.png';
 
@@ -43,7 +43,7 @@ function createMarkup(arr) {
                 <p class="author-shopping-list">${author}</p>
                 <ul class="buy-links-box">
                   <li>
-                    <a class="" href="${urlLink1}"><img class="shopping-list-amazon-icon fund-image-amazon" src="${amazonIcon}" alt="${nameLink1}"></a>
+                    <a class="" href="${urlLink1}"><img class="shopping-list-amazon-icon bookshop-image-amazon" src="${amazonIcon}" alt="${nameLink1}"></a>
                   </li>
                   <li>
                     <a class="" href="${urlLink2}"><img class="shopping-list-apple-book-icon" src="${appleBooksIcon}" alt="${nameLink2}"></a>
@@ -79,21 +79,20 @@ function addRemoveListeners() {
     button.addEventListener('click', removeDataFromShoppingList);
   });
 }
-// Видалення даних з LocalStorage та оновлення списку
+
 function removeDataFromShoppingList(evt) {
   const bookId = evt.target.closest('li').id;
   let myArray = JSON.parse(localStorage.getItem('shoppingList')) || [];
-  // Видалення об'єкта з LocalStorage за його id
+
   myArray = myArray.filter(book => book._id !== bookId);
   localStorage.setItem('shoppingList', JSON.stringify(myArray));
-  // Видалення ел з розмітки за id
+
   const cardBookEl = document.getElementById(bookId);
   if (cardBookEl) {
     cardBookEl.remove();
   }
   updateShoppingList();
 
-  // Оновлення розмітки, якщо список порожній
   if (myArray.length === 0) {
     listEl.innerHTML = createEmptyMarkup();
   }
