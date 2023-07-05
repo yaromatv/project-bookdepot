@@ -12,12 +12,22 @@
 }
 
 body {
+  height: 100%;
   font-family: 'DM Sans', sans-serif;
   color: var(--text-color);
   background-color: #f3f3f3;
+
+}
+
+.wrapper {
+  min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
 }
 
 .main-wrapper {
+
   padding-top: 104px;
 }
 
@@ -25,6 +35,7 @@ body {
   max-width: 375px;
   padding: 0 20px;
   margin: 0 auto;
+  flex: 1 1 auto;
 }
 
 .title {
@@ -136,6 +147,10 @@ body {
     max-width: 768px;
     padding: 0 32px;
   }
+
+  .wrapper {
+    max-width: 1440px;
+  }
 }
 
 @media screen and (min-width: 1440px) {
@@ -153,5 +168,9 @@ body {
     max-width: 1440px;
     padding: 0 24px;
     margin: 0 auto;
+  }
+  
+  .wrapper {
+    max-width: 1440px;
   }
 }
