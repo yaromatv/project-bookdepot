@@ -103,6 +103,18 @@
   color: var(--button-accent-text-color);
 }
 
+[data-theme='dark'] .add-list-btn-text{
+  color: rgb(255, 255, 255, 50%);
+}
+
+/* .fund-image-amazon:hover{
+  filter: drop-shadow(2px 2px 2px #b1aeae);
+}
+
+[data-theme='dark'] .fund-image-amazon:hover{
+  filter: drop-shadow(2px 2px 2px #c2bcbc);
+} */
+
 [data-theme='dark'] .add-list-btn {
   background-color: var(--dark-background-color);
   color: var(--button-accent-text-color);
@@ -116,14 +128,22 @@
   transition: 0.3s;
 }
 
-[data-theme='dark'] .add-list-btn:hover:not(:focus),
+[data-theme='dark'] .modal-close-icon{
+  fill: var(--button-accent-text-color);
+}
+
+.modal-close-btn{
+  border: none;
+}
+
+/* [data-theme='dark'] .add-list-btn:hover:not(:focus),
 [data-theme='dark'] .add-list-btn:focus:not(:hover),
 [data-theme='dark'] .add-list-btn:active,
 [data-theme='dark'] .add-list-btn:active:focus {
   color: var(--button-accent-text-color);
   background-color: initial;
   transition: 0.3s;
-}
+} */
 
 [data-theme='dark'] .book-title,
 [data-theme='dark'] .description-shopping-list
