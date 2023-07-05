@@ -1,6 +1,4 @@
-// import Swiper, { Navigation } from 'swiper';
-// import 'swiper/css';
-// import 'swiper/css/navigation';
+import Swiper from 'swiper';
 
 import { fundList } from './fund-list.js';
 
@@ -8,10 +6,10 @@ const supportUkraineList = document.querySelector('.fund-list');
 
 function createFundMarkup(fundList) {
   const isRetina = window.devicePixelRatio > 1.1;
-  const fundMarkup = fundList.map(({ title, url, img, retinaImg }) => {
+  return fundList.map(({ title, url, img, retinaImg }) => {
     const fundImage = isRetina ? retinaImg : img;
     return `
-    <li class="fund">
+    <li class="fund swiper-slide">
     <a class="fund-link" href=${url} target="_blank" rel="noreferrer noopener nofollow" >
       <img
         class="fund-image"
@@ -23,7 +21,6 @@ function createFundMarkup(fundList) {
   </li>
   `;
   });
-  return fundMarkup;
 }
 
 supportUkraineList.insertAdjacentHTML(
@@ -31,42 +28,48 @@ supportUkraineList.insertAdjacentHTML(
   createFundMarkup(fundList).join('')
 );
 
-// const swiper = new Swiper('.my-swiper', {
-//     direction: 'vertical',
-//     spaceBetween: 20,
-//     slidesPerView: 'auto',
-  
-//     navigation: {
-//       nextEl: '.swiper-button-down',
-//       prevEl: '.swiper-button-up',
-//     },
-  
-//     plugins: {
-//       scrollContainer: true,
-//     },
-//   });
+// ---------------Swiper with buttons-------------------
 
-const fundBtn = document.querySelector('.fund-scroll');  
-const fundScrollDownBtn = document.querySelector('.swiper-button-down');
-const fundScrollUpBtn = document.querySelector('.swiper-button-up');
+const fundBtnDown = document.querySelector('.fund-scroll-down');
+const fundBtnUp = document.querySelector('.fund-scroll-up');
 
-// let activeSwiperEl = 5;
+fundBtnUp.classList.add('hidden');
 
-// fundBtn.addEventListener('click', () => {
-//   swiper.slideNext();
+const swiper = new Swiper('.my-swiper', {
+  direction: 'vertical',
+  slidesPerView: 'auto',
 
-//   if (
-//     supportUkraineList.children[activeSwiperEl].classList.contains('swiper-slide-active')
-//   ) {
-//     fundBtn.style.display = 'none';
-//     fundScrollUpBtn.style.display = 'block';
-//   }
-// });
+  navigation: {
+    nextEl: '.swiper-button-down',
+    prevEl: '.swiper-button-up',
+  },
 
-// fundScrollUpBtn.addEventListener('click', () => {
-//   swiper.slidePrev();
-//   if (supportUkraineList.children[0].classList.contains('swiper-slide-active')) {
-//     fundScrollUpBtn.style.display = 'none';
-//     fundBtn.style.display = 'block';
-//   }
-// });
+  plugins: {
+    scrollContainer: true,
+  },
+});
+
+fundBtnDown.addEventListener('click', () => {
+  swiper.slideNext();
+});
+
+fundBtnUp.addEventListener('click', () => {
+  swiper.slidePrev();
+});
+
+const hideDownObserver = new IntersectionObserver(function (entries) {
+  if (entries[0].intersectionRatio <= 0) return;
+
+  fundBtnUp.classList.remove('hidden');
+  fundBtnDown.classList.add('hidden');
+});
+
+const hideUpObserver = new IntersectionObserver(function (entries) {
+  if (entries[0].intersectionRatio <= 0) return;
+
+  fundBtnUp.classList.add('hidden');
+  fundBtnDown.classList.remove('hidden');
+});
+
+hideDownObserver.observe(supportUkraineList.lastElementChild);
+hideUpObserver.observe(supportUkraineList.firstElementChild);
