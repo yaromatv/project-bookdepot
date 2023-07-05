@@ -100,6 +100,10 @@ transition: 0.3s;
   background-color: inherit;
 }
 
+::-webkit-scrollbar-corner{
+  background-color: inherit;
+}
+
 [data-theme='dark'] .title-shopping-list {
   color: var(--button-accent-text-color);
 }
