@@ -1,3 +1,4 @@
+import './support-ukraine';
 import { booksRequest } from './books-api';
 
 import '../js/dark-mode';
