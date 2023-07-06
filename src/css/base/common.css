@@ -55,7 +55,7 @@ main {
 
 .hidden {
   display: none;
-  visibility: none;
+  visibility: hidden;
 }
 
 .visually-hidden {
