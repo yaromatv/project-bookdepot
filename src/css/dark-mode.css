@@ -193,28 +193,14 @@
   border: 1px solid rgb(255, 255, 255, 50%);
 }
 
-.bookshop-image-amazon:hover {
-  filter: drop-shadow(2px 2px 2px #b1aeae);
-}
-
 [data-theme='dark'] .bookshop-image-amazon:hover {
-  /* filter: drop-shadow(3px 3px 3px #fff) invert (55%); */
-  /* filter: brightness(0) invert(0.5); */
-  filter: brightness(0) invert() drop-shadow(2px 2px 2px #fff);
-}
-
-.bookshop-image-applebooks:hover {
-  filter: brightness(0) invert() drop-shadow(5px 2px 2px #000);
+  filter: brightness(0) invert() drop-shadow(0px 0px 4px #b4afaf);
 }
 
 [data-theme='dark'] .bookshop-image-applebooks:hover {
-  filter: drop-shadow(2px 2px 2px #c2bcbc);
-}
-
-.bookshop-image-bookshop:hover {
-  filter: drop-shadow(2px 2px 2px #b1aeae);
+  filter: drop-shadow(0px 0px 4px #b4afaf);
 }
 
 [data-theme='dark'] .bookshop-image-bookshop:hover {
-  filter: drop-shadow(2px 2px 2px #c2bcbc);
+  filter: drop-shadow(0px 0px 4px #b4afaf);
 }
