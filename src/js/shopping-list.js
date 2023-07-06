@@ -90,6 +90,7 @@ function removeDataFromShoppingList(evt) {
   if (cardBookEl) {
     cardBookEl.remove();
   }
+  updateMarkup(myArray);
 }
 
 export { updateMarkup };
