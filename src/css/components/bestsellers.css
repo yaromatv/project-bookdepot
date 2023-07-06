@@ -115,6 +115,7 @@
   margin-left: auto;
   max-width: 128px;
   padding: 14px 28px;
+  transform: scale(1);
 
   font-size: 14px;
   font-weight: 700;
@@ -129,13 +130,13 @@
 
   cursor: pointer;
 
-  transition: scale 400ms cubic-bezier(0.165, 0.84, 0.44, 1),
+  transition: transform 400ms cubic-bezier(0.165, 0.84, 0.44, 1),
     color 400ms cubic-bezier(0.165, 0.84, 0.44, 1),
     background-color 400ms cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .top-books-category-btn:is(:hover, :focus) {
-  scale: 104%;
+  transform: scale(1.04);
   color: #ffffff;
   background-color: var(--light-category-accent-color);
 }
