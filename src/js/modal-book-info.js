@@ -28,6 +28,7 @@ const modalContent = document.querySelector('.modal-content');
 galleryEl.addEventListener('click', onGalleryClick);
 
 function onGalleryClick(e) {
+  e.preventDefault();
   const targetElement = e.target.closest('.top-books-category-item');
   if (targetElement) {
     const dataId = targetElement.getAttribute('data-id');
