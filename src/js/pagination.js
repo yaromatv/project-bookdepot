@@ -2,41 +2,55 @@ import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 import '../css/components/pagination.css';
 
-const shoppingList = localStorage.getItem('shoppingList');
-const shoppingListArray = JSON.parse(shoppingList);
-console.log(shoppingListArray.length);
+import { updateMarkup } from './shopping-list.js';
+
+let shoppingList = localStorage.getItem('shoppingList');
+let shoppingListArray = JSON.parse(shoppingList);
 
 let visiblePages = 2;
-let itemsPerPage = 7;
+let itemsPerPage = 4;
 if (window.innerWidth >= 768) {
   visiblePages = 3;
-  itemsPerPage = 8;
+  itemsPerPage = 3;
 }
 const options = {
-  totalItems: 500,
+  totalItems: shoppingListArray.length,
   itemsPerPage,
   visiblePages,
-
 };
 
+if (shoppingListArray.length / itemsPerPage <= 1) return;
 
 const container = document.getElementById('tui-pagination-container');
+const pagination = new Pagination(container, options);
 
-const instance = new Pagination(container, options);
+pagination.on('beforeMove', event => {
+  const currentPage = event.page;
+  updateMarkup(
+    shoppingListArray.slice(
+      (currentPage - 1) * itemsPerPage,
+      currentPage * itemsPerPage
+    )
+  );
+  addRemoveListeners();
+});
 
+pagination.movePageTo(1);
 
-console.log(instance.getCurrentPage());
-
-
-console.log(shoppingList);
-
-function visiblePagination() {
-  if (!localStorage.getItem('shoppingList') || shoppingList.length === 0) {
-  container.style.display = 'none';}
-else{container.style.display = 'flex';}
+function addRemoveListeners() {
+  const removeButtons = document.querySelectorAll('.removeBook-js');
+  removeButtons.forEach(button => {
+    button.addEventListener('click', refreshPage);
+  });
 }
 
-const totalPages = Math.ceil(shoppingListArray.length / itemsPerPage);
-const paginatedItems = Array.from({ length: totalPages }, (_, i) =>
-  shoppingListArray.slice(i * itemsPerPage, (i + 1) * itemsPerPage)
-);
+function refreshPage() {
+  shoppingList = localStorage.getItem('shoppingList');
+  shoppingListArray = JSON.parse(shoppingList);
+  let currentPage = pagination.getCurrentPage();
+  pagination.reset(shoppingListArray.length);
+  pagination.movePageTo(currentPage);
+  if (shoppingListArray.length / itemsPerPage <= 1) {
+    container.classList.add('hidden');
+  }
+}

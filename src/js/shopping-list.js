@@ -1,9 +1,7 @@
 import './support-ukraine';
-import { booksRequest } from './books-api';
 
 import '../js/dark-mode';
 
-import trashIcon from '../images/initial/trash.svg';
 import amazonIcon from '../images/png/amazon-logo.png';
 import appleBooksIcon from '../images/png/applebooks-logo.png';
 import bookShopIcon from '../images/png/bookshop3xOpt.png';
@@ -12,14 +10,13 @@ import bookEmptyIcon from '../images/png/thispageisempty2xOpt.png';
 const listEl = document.querySelector('.shopping-list-js');
 
 const myArray = JSON.parse(localStorage.getItem('shoppingList')) || [];
-const markup = createMarkup(myArray);
-listEl.innerHTML = markup;
-addRemoveListeners();
+updateMarkup(myArray);
 
-function createMarkup(arr) {
+function updateMarkup(arr) {
+  let markup;
   const shoppingList = JSON.parse(localStorage.getItem('Shoppinglist'));
   if (shoppingList || arr.length > 0) {
-    return arr
+    markup = arr
       .map(
         ({
           _id,
@@ -44,13 +41,13 @@ function createMarkup(arr) {
                 <p class="author-shopping-list">${author}</p>
                 <ul class="buy-links-box">
                   <li>
-                    <a class="" href="${urlLink1}" target="_blank" rel="noreferrer noopener"><img class="shopping-list-amazon-icon bookshop-image-amazon" src="${amazonIcon}" alt="${nameLink1}"></a>
+                    <a class="" href="${urlLink1}"><img class="shopping-list-amazon-icon bookshop-image-amazon" src="${amazonIcon}" alt="${nameLink1}"></a>
                   </li>
                   <li>
-                    <a class="" href="${urlLink2}" target="_blank" rel="noreferrer noopener"><img class="shopping-list-apple-book-icon" src="${appleBooksIcon}" alt="${nameLink2}"></a>
+                    <a class="" href="${urlLink2}"><img class="shopping-list-apple-book-icon" src="${appleBooksIcon}" alt="${nameLink2}"></a>
                   </li>
                   <li>
-                    <a class="" href="${urlLink3}" target="_blank" rel="noreferrer noopener"><img class="shopping-list-books-shop-icon" src="${bookShopIcon}" alt="${nameLink3}"></a>
+                    <a class="" href="${urlLink3}"><img class="shopping-list-books-shop-icon" src="${bookShopIcon}" alt="${nameLink3}"></a>
                   </li>
                 </ul>
               </div>
@@ -62,8 +59,8 @@ function createMarkup(arr) {
       `
       )
       .join('');
-  }
-  return `
+  } else
+    markup = `
         <div class="empty-shopping-list">
           <p class="empty-desc">
           This page is empty, add some books and proceed to order.
@@ -71,6 +68,9 @@ function createMarkup(arr) {
           <img class ="book-empty" src="${bookEmptyIcon}" alt="this page is empty" width="265" height="198">
         </div>
       `;
+
+  listEl.innerHTML = markup;
+  addRemoveListeners();
 }
 function addRemoveListeners() {
   const removeButtons = document.querySelectorAll('.removeBook-js');
@@ -90,30 +90,6 @@ function removeDataFromShoppingList(evt) {
   if (cardBookEl) {
     cardBookEl.remove();
   }
-  updateShoppingList();
-
-  if (myArray.length === 0) {
-    listEl.innerHTML = createEmptyMarkup();
-  }
 }
 
-function createEmptyMarkup() {
-  return `
-    <div class="empty-shopping-list">
-      <p class="empty-desc">
-        This page is empty, add some books and proceed to order.
-      </p>
-      <img class ="book-empty" src="${bookEmptyIcon}" alt="this page is empty" width="265" height="198">
-    </div>
-  `;
-}
-
-function updateShoppingList() {
-  booksRequest()
-    .then(data => {
-      const markup = createMarkup(data);
-      listEl.innerHTML = markup;
-      addRemoveListeners();
-    })
-    .catch(err => console.log(err));
-}
+export { updateMarkup };
