@@ -3,9 +3,15 @@
 }
 
 .shopping-list-container {
-  /* overflow: scroll; */
   padding-top: 104px;
+  gap: 40px;
 }
+
+.shopping-list-box {
+  flex-grow: 1;
+}
+
+
 .remove-shopping-list-btn {
   border-radius: 50%;
   border: none;
@@ -180,13 +186,17 @@
 }
 @media screen and (min-width: 768px) {
   .shopping-list-container {
-    /* overflow: scroll; */
     padding-top: 120px;
   }
+
 
   .title-shopping-list {
     font-size: 48px;
     line-height: 52px;
+  }
+
+  .empty-shopping-list {
+    margin-top: 140px;
   }
 
   .empty-desc {
@@ -256,7 +266,7 @@
     top: 24px;
     right: 24px;
     width: 34px;
-  height: 34px;
+    height: 34px;
     background-size: 16px;
   }
 }
@@ -266,7 +276,6 @@
   }
 
   .shopping-list-support-flex {
-    margin-left: 40px;
     width: 100%;
   }
 
