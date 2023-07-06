@@ -1,8 +1,8 @@
 // import { createTopBooksMarkup } from './gallery-markup.js';
-import closeButton from '../images/png/x-close.png';
+// import closeButton from '../images/png/x-close.png';
 
-import amazon from '../images/png/amazon3xOpt.png';
-// import amazon from '../images/png/amazon-logo.png';
+// import amazon from '../images/png/amazon3xOpt.png';
+import amazon from '../images/png/amazon-logo.png';
 
 // import appleBooks from '../images/png/openbook3xOpt.png';
 import appleBooks from '../images/png/applebooks-logo.png';
@@ -19,8 +19,11 @@ const refs = {
   backdrop: document.querySelector('.backdrop'),
 };
 
+const bookItemWrapper = document.querySelector('.book-item-wrapper');
 const galleryEl = document.querySelector('.gallery-section');
 console.log(galleryEl);
+
+const modalContent = document.querySelector('.modal-content');
 
 galleryEl.addEventListener('click', onGalleryClick);
 
@@ -37,6 +40,7 @@ async function bookDetails(id) {
     .then(response => response.json())
     .then(data => {
       createModalMarkup(data);
+      refs.backdrop.classList.toggle('is-hidden');
       return data;
     })
     .then(newData => {
@@ -83,15 +87,14 @@ async function bookDetails(id) {
           console.log('Book removed from shopping list!');
           addListBtn.textContent = 'Add to shopping list';
 
-          addListBtnText.classList.add('hidden');
+          addListBtnText.classList.add('visually-hidden');
           addListBtnText.textContent = '';
         } else {
           currentBooks.push(bookInfo);
           localStorage.setItem('shoppingList', JSON.stringify(currentBooks));
-          console.log('Book added to shopping list!');
           addListBtn.textContent = 'Remove from the shopping list';
 
-          addListBtnText.classList.remove('hidden');
+          addListBtnText.classList.remove('visually-hidden');
           addListBtnText.textContent =
             'Congratulations! You have added the book to the shopping list. To delete, press the button "Remove from the shopping list".';
         }
@@ -135,10 +138,7 @@ function createModalMarkup(data) {
     : 'https://images.unsplash.com/photo-1544376798-89aa6b82c6cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80';
 
   let markup = `
-  <button type="button" class="modal-close-btn" data-modal-close>
-   <img class="close-btn" src="${closeButton}" alt="close button" />
-        </button>
-  <div class="book-item">
+    <div class="book-item">
           <div class="book-item-content">
             <div class="img-container">
               <img class="book-cover" src="${bookImage}" width="287" height="408"  alt="book cover" />
@@ -158,6 +158,7 @@ function createModalMarkup(data) {
                             alt="logo Amazon"
                             width="62"
                             height="19"
+                            class="bookshop-image-amazon"
                             />
                   </a>
                 </li>
@@ -168,6 +169,7 @@ function createModalMarkup(data) {
                             alt="logo AppleBooks"
                             width="62"
                             height="19"
+                            class="bookshop-image-applebooks"
                             />
                   </a>
                 </li>
@@ -178,6 +180,7 @@ function createModalMarkup(data) {
                             alt="logo BookShop"
                             width="62"
                             height="19"
+                            class="bookshop-image-bookshop"
                             />
                   </a>
                 </li>
@@ -188,11 +191,11 @@ function createModalMarkup(data) {
             <button type="button" class="add-list-btn">
               Add to shopping list
             </button>
-            <p class="add-list-btn-text"></p>
+            <p class="add-list-btn-text visually-hidden"></p>
           </div>
         </div>`;
 
-  refs.modal.innerHTML = markup;
+  bookItemWrapper.innerHTML = markup;
 
   refs.closeBtn = document.querySelector('.modal-close-btn');
   refs.closeBtn.addEventListener('click', onModalClose);
@@ -210,14 +213,16 @@ function onModalOpen(e) {
   const targetElement = e.target.closest('.top-books-category-item');
   if (targetElement) {
     window.addEventListener('keydown', onEscKeyPress);
-    refs.backdrop.classList.toggle('is-hidden');
+
     document.body.classList.add('modal-open');
     refs.backdrop.addEventListener('click', onBackdropClick);
   }
 }
 
 function onModalClose() {
-  refs.modal.innerHTML = '';
+  bookItemWrapper.innerHTML = '';
+  // refs.closeBtn.classList.add('visually-hidden');
+
   refs.backdrop.classList.toggle('is-hidden');
   document.body.classList.remove('modal-open');
 

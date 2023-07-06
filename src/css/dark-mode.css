@@ -1,202 +1,230 @@
 [data-theme='dark'] main {
   background-color: var(--dark-background-color);
-  transition: 0.3s;
+}
+
+[data-theme='dark'] body{
+  background-color: var(--dark-background-color);
 }
 
 [data-theme='dark'] .gallery-title {
   color: var(--light-background-color);
-  transition: 0.3s;
 }
 
 [data-theme='light'] main {
-  transition: 0.3s;
 }
+
+
+[data-theme='dark'] .header__container{
+  background-color: var(--text-color);
+  border: 1.5px solid var(--button-accent-text-color);
+}
+
+[data-theme='dark'] .logo-text-victory,
+[data-theme='dark'] .menu-btn{
+  fill: var(--button-accent-text-color);
+  }
+  
+[data-theme='dark'] .add-list-btn-text{
+  color: rgb(255, 255, 255, 50%);
+}
+
+  [data-theme='dark'] .modal-close-icon{
+fill: var(--button-accent-text-color);
+transition: 0.3s;
+  }
 
 [data-theme='dark'] .gallery-title {
   color: var(--light-background-color);
-  transition: 0.3s;
 }
 
 [data-theme='dark'] .categories-item {
   color: var(--button-accent-text-color);
-  transition: 0.3s;
 }
 
 [data-theme='dark'] .active {
   color: var(--dark-category-accent-color);
-  transition: 0.3s;
 }
 
 [data-theme='dark'] .active {
   color: var(--dark-category-accent-color);
-  transition: 0.3s;
 }
 
 [data-theme='dark'] .top-books-category-item-title {
   color: var(--button-accent-text-color);
-  transition: 0.3s;
 }
 
 [data-theme='dark'] .top-books-category-btn {
   color: var(--button-accent-text-color);
-  transition: 0.3s;
 }
-/* [data-theme='dark'] .top-books-category-btn:is(:hover, :focus){
-      background-color: var(--dark-category-accent-color);
-    } */
 
 [data-theme='dark'] .modal {
   background-color: var(--dark-background-color);
-  transition: 0.3s;
 }
-
-
 
 [data-theme='dark'] .book-name {
   color: var(--button-accent-text-color);
-  transition: 0.3s;
 }
 
 [data-theme='dark'] .book-description {
   color: var(--button-accent-text-color);
-  transition: 0.3s;
 }
 
 [data-theme='dark'] .logo-text {
   color: #f3f3f3;
-  transition: 0.3s;
-}
-
-[data-theme='dark'] .header {
-  background-color: var(--text-color);
-  transition: 0.3s;
 }
 
 [data-theme='dark'] .item-text {
   color: var(--button-accent-text-color);
-  transition: 0.3s;
 }
 
 [data-theme='dark'] .shpng-list-logo {
   fill: var(--button-accent-text-color);
-  transition: 0.3s;
 }
 
 [data-theme='dark'] .footer {
   background-color: var(--dark-background-color);
-  transition: 0.3s;
 }
 
 [data-theme='dark'] .footer-copyright {
   color: var(--button-accent-text-color);
-  transition: 0.3s;
 }
 
 [data-theme='dark'] ::-webkit-scrollbar-thumb {
   background: var(--text-color);
-  transition: 0.3s;
 }
 ::-webkit-scrollbar-thumb {
   background: #e0e0e0;
-  transition: 0.3s;
 }
 
-[data-theme='dark'] .title-shopping-list{
-color: var(--button-accent-text-color);
+[data-theme='dark'] ::-webkit-scrollbar-corner{
+  background-color: inherit;
+}
+
+::-webkit-scrollbar-corner{
+  background-color: inherit;
+}
+
+[data-theme='dark'] .title-shopping-list {
+  color: var(--button-accent-text-color);
+}
+
+[data-theme='dark'] .add-list-btn-text{
+  color: rgb(255, 255, 255, 50%);
 }
 
 [data-theme='dark'] .add-list-btn {
   background-color: var(--dark-background-color);
   color: var(--button-accent-text-color);
-  transition: 0.3s;
 }
 
 [data-theme='dark'] .add-list-btn:hover,
 [data-theme='dark'] .add-list-btn:focus {
   background-color: var(--light-category-accent-color);
   color: var(--button-accent-text-color);
-  transition: 0.3s;
 }
 
-[data-theme='dark'] .add-list-btn:hover:not(:focus),
-[data-theme='dark'] .add-list-btn:focus:not(:hover),
-[data-theme='dark'] .add-list-btn:active,
-[data-theme='dark'] .add-list-btn:active:focus {
-  color: var(--button-accent-text-color);
-  background-color: initial;
-  transition: 0.3s;
+[data-theme='dark'] .modal-close-icon{
+  fill: var(--button-accent-text-color);
+}
+
+.modal-close-btn{
+  border: none;
 }
 
 [data-theme='dark'] .book-title,
-[data-theme='dark'] .description-shopping-list
-/* [data-theme='dark'] .tui-page-btn{ */{
+[data-theme='dark'] .description-shopping-list{
+  color: var(--button-accent-text-color);
+}
+
+[data-theme='dark'] .tui-pagination .tui-page-btn {
+  color: var(--button-accent-text-color);
+  }
+
+[data-theme='dark'] .tui-page-btn{
+border: 1px solid #fff;
 color: var(--button-accent-text-color);
 transition: 0.3s;
 }
 
-
-[data-theme='dark'] .tui-pagination .tui-page-btn{
-  color: var(--button-accent-text-color);
-  transition: 0.3s;
+[data-theme='dark'] .tui-first{
+  border: none;
 }
 
 [data-theme='dark'] .tui-pagination .tui-ico-next,
 [data-theme='dark'] .tui-pagination .tui-ico-last {
   color: #000000;
-  transition: 0.3s;
 }
 
 [data-theme='dark'] .tui-pagination .tui-first,
 [data-theme='dark'] .tui-pagination .tui-first + .tui-prev {
   background-color: var(--text-color);
-  transition: 0.3s;
 }
 
 [data-theme='dark'] .tui-pagination .tui-next,
 [data-theme='dark'] .tui-pagination .tui-last {
   background-color: var(--dark-category-accent-color);
   border: 1px solid var(--text-color);
-  transition: 0.3s;
 }
 
 [data-theme='dark'] .tui-page-btn.tui-is-selected {
   background-color: var(--button-accent-text-color);
   color: var(--text-color);
-  border: 2px solid var(--text-color);
-  transition: 0.3s;
-}
-
-[data-theme='dark'] .tui-pagination .tui-first + .tui-prev:hover{
-  background-color: var(--button-accent-text-color);
-  transition: 0.3s;
-}
-
-[data-theme='dark'] .tui-pagination .tui-next + .tui-last,
-.tui-pagination .tui-first + .tui-prev{
-  border-left: 1px solid var(--text-color);
-  transition: 0.3s;
-}
-
-[data-theme='dark'] .tui-page-btn.tui-is-selected.tui-last-child{
-  border-right: 2px solid var(--text-color);
-  transition: 0.3s;
-}
-
-/* 
-[data-theme='dark'] .tui-pagination .tui-page-btn,
-[data-theme='dark'] .tui-ico-first{
-  background-color: inherit;
-  color: var(--light-lift-color);
-}
-
-[data-theme='dark'] .tui-pagination .tui-page-btn {
   border: 2px solid var(--button-accent-text-color);
 }
 
-[data-theme='dark'] .tui-ico-first{
+[data-theme='dark'] .tui-pagination .tui-first + .tui-prev:hover {
+  background-color: var(--button-accent-text-color);
+}
 
-} */
-/* [data-theme='dark'] .brightness{
-  filter: grayscale(100%) brightness(10);
+[data-theme='dark'] .tui-pagination .tui-next + .tui-last,
+.tui-pagination .tui-first + .tui-prev {
+  border: 1px solid var(--text-color);
+  
+}
+
+[data-theme='dark'] .close-mob-menu-victory{
+  fill: var(--button-accent-text-color);
+}
+
+[data-theme='dark'] .tui-page-btn.tui-is-selected.tui-last-child {
+  border-right: 2px solid var(--text-color);
+}
+
+[data-theme='dark'] .bookshop-image-amazon {
+  filter: brightness(0) invert(1);
+  /* -webkit-filter: brightness(0) invert(1); */
+}
+
+[data-theme='dark'] .footer-container{
+  border: 1px solid rgb(255, 255, 255, 50%);
+}
+
+.bookshop-image-amazon:hover {
+  filter: drop-shadow(2px 2px 2px #b1aeae);
+}
+
+[data-theme='dark'] .bookshop-image-amazon:hover {
+  /* filter: drop-shadow(3px 3px 3px #fff) invert (55%); */
+  /* filter: brightness(0) invert(0.5); */
+  filter: brightness(0) invert() drop-shadow(2px 2px 2px #fff);
+}
+
+.bookshop-image-applebooks:hover {
+  filter: brightness(0) invert() drop-shadow(5px 2px 2px #000);
+}
+
+[data-theme='dark'] .bookshop-image-applebooks:hover {
+  filter: drop-shadow(2px 2px 2px #c2bcbc);
+}
+
+.bookshop-image-bookshop:hover {
+  filter: drop-shadow(2px 2px 2px #b1aeae);
+}
+
+[data-theme='dark'] .bookshop-image-bookshop:hover {
+  filter: drop-shadow(2px 2px 2px #c2bcbc);
+}
+
+*{
   transition: 0.3s;
-} */
+}
