@@ -21,7 +21,7 @@ const refs = {
 
 const bookItemWrapper = document.querySelector('.book-item-wrapper');
 const galleryEl = document.querySelector('.gallery-section');
-console.log(galleryEl);
+// console.log(galleryEl);
 
 const modalContent = document.querySelector('.modal-content');
 
