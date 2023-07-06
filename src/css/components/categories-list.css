@@ -15,12 +15,14 @@
   line-height: 1.125em;
   letter-spacing: -0.02em;
   color: rgba(17, 17, 17, 0.6);
+  transition: color 0s, font-weight 0s;
 }
 
 .categories-item.active {
   font-weight: 700;
   color: var(--light-category-accent-color);
   text-transform: uppercase;
+  transition: color 0s, font-weight 0s;
 }
 
 .categories-item:is(:hover, :focus) {
