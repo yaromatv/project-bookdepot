@@ -329,6 +329,15 @@ input:checked + .slider:before {
   font-weight: 700;
 }
 
+.mob-menu__icon {
+  padding-left: 4px;
+  fill: var(--button-accent-text-color);
+}
+
+.mob-menu-list__link.current .mob-menu__icon {
+  fill: #111111;
+}
+
 .mob-menu-close-btn {
   border: none;
   background: none;
@@ -350,9 +359,4 @@ input:checked + .slider:before {
   .switch {
     margin-right: 24px;
   }
-}
-
-.mob-menu__icon {
-  padding-left: 4px;
-  fill: var(--button-accent-text-color);
 }
