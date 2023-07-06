@@ -8,38 +8,37 @@
       content="BookDepot is an online web application for browsing and ordering books. Discover a wide selection of titles from various categories, read reviews, check availability, and place orders easily. Find your new favorite title on BookDepot today!"
     />
     <title>BookDepot - Online Bookstore</title>
-
     <link rel="icon" type="image/svg+xml" href="/src/favicon.svg" />
     <link rel="stylesheet" href="./css/index.css" />
-
     <script type="module" src="./index.js"></script>
   </head>
   <body>
-    <!-- PARTIALS -->
-    <header class="header header-home">
-    <include src="./partials/header.html"></include>
-    </header>
-    <main class="main-wrapper">
-      <div class="main-box main-container">
-        <aside class="sidebar-section">
-          <div class="sidebar-container">
-            <div class="sidebar">
-              <include src="./partials/categories-list.html"></include>
-              <include src="./partials/support-ukraine.html"></include>
+    <div class="wrapper">
+      <header class="header header-home">
+        <include src="./partials/header.html"></include>
+      </header>
+      <main class="main-wrapper">
+        <div class="main-box main-container">
+          <aside class="sidebar-section">
+            <div class="sidebar-container">
+              <div class="sidebar">
+                <include src="./partials/categories-list.html"></include>
+                <include src="./partials/support-ukraine.html"></include>
+              </div>
             </div>
-          </div>
-        </aside>
-        <section class="gallery-section">
-          <div class="gallery-container">
-            <include src="./partials/bestsellers.html"></include>
-            <include src="./partials/category.html"></include>
-          </div>
-        </section>
-      </div>
-    </main>
-    <include src="./partials/footer.html"></include>
-    <include src="./partials/modal-book-info.html"></include>
-    <include src="./partials/modal-team.html"></include>
-    <include src="./partials/scroll-up.html"></include>
+          </aside>
+          <section class="gallery-section">
+            <div class="gallery-container">
+              <include src="./partials/bestsellers.html"></include>
+              <include src="./partials/category.html"></include>
+            </div>
+          </section>
+        </div>
+      </main>
+      <include src="./partials/footer.html"></include>
+      <include src="./partials/modal-book-info.html"></include>
+      <include src="./partials/modal-team.html"></include>
+      <include src="./partials/scroll-up.html"></include>
+    </div>
   </body>
 </html>
