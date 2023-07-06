@@ -44,13 +44,13 @@ function createMarkup(arr) {
                 <p class="author-shopping-list">${author}</p>
                 <ul class="buy-links-box">
                   <li>
-                    <a class="" href="${urlLink1}"><img class="shopping-list-amazon-icon bookshop-image-amazon" src="${amazonIcon}" alt="${nameLink1}"></a>
+                    <a class="" href="${urlLink1}" target="_blank" rel="noreferrer noopener"><img class="shopping-list-amazon-icon bookshop-image-amazon" src="${amazonIcon}" alt="${nameLink1}"></a>
                   </li>
                   <li>
-                    <a class="" href="${urlLink2}"><img class="shopping-list-apple-book-icon" src="${appleBooksIcon}" alt="${nameLink2}"></a>
+                    <a class="" href="${urlLink2}" target="_blank" rel="noreferrer noopener"><img class="shopping-list-apple-book-icon" src="${appleBooksIcon}" alt="${nameLink2}"></a>
                   </li>
                   <li>
-                    <a class="" href="${urlLink3}"><img class="shopping-list-books-shop-icon" src="${bookShopIcon}" alt="${nameLink3}"></a>
+                    <a class="" href="${urlLink3}" target="_blank" rel="noreferrer noopener"><img class="shopping-list-books-shop-icon" src="${bookShopIcon}" alt="${nameLink3}"></a>
                   </li>
                 </ul>
               </div>
