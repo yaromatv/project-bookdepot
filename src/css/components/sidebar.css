@@ -30,10 +30,8 @@ a {
 
 @media screen and (min-width: 1440px) {
   .sidebar-container {
-    /* max-width: 380px; */
     width: 356px;
     padding: 0;
-    /* padding-left: 24px; */
   }
 
   .sidebar {

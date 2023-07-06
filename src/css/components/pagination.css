@@ -16,7 +16,7 @@
 }
 @media screen and (min-width: 768px) {
   .tui-first + .tui-prev {
-    margin-right: 24px;
+    margin-right: 20px;
   }
 }
 .tui-pagination .tui-first-child.tui-is-selected {

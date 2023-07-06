@@ -16,6 +16,8 @@
   height: 28px;
   background: url(/src/images/initial/trash.svg) no-repeat center;
   position: absolute;
+  top: 14px;
+  right: 14px;
   background-size: 18px;
   background-color: var(--light-category-accent-color);
   transition: fill 0.3s ease;
@@ -79,14 +81,14 @@
 .book-title {
   font-size: 16px;
   margin-bottom: 4px;
-  width: 155px;
+  width: 144px;
   height: 18px;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
 }
 .category-shopping-list {
-  width: 100%;
+  width: 160px;
   margin-bottom: 8px;
   font-size: 12px;
   line-height: 14px;
@@ -253,6 +255,8 @@
   .remove-shopping-list-btn {
     top: 24px;
     right: 24px;
+    width: 34px;
+  height: 34px;
     background-size: 16px;
   }
 }

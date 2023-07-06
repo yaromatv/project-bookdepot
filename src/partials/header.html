@@ -1,83 +1,87 @@
-<div class="container header__container header-border-victory">
-    <div class="header-nav">
-        <a class="logo" href="/src/index.html">
-            <svg class="logo-img" width="24px" height="24px">
-                <title>logotype</title>
-                <use href="./images/sprite.svg#icon-logo"></use>
-            </svg>
-            <svg class="logo-text logo-text-victory" width="77px" height="13.27px">
-                <title>logotype_name</title>
-                <use href="./images/sprite.svg#icon-Bookshelf"></use>
-            </svg>
+<div class="header__container header-border-victory">
+  <div class="header-nav">
+    <a class="logo" href="/src/index.html">
+      <svg class="logo-img" width="24px" height="24px">
+        <title>logotype</title>
+        <use href="./images/sprite.svg#icon-logo"></use>
+      </svg>
+      <svg class="logo-text logo-text-victory" width="77px" height="13.27px">
+        <title>logotype_name</title>
+        <use href="./images/sprite.svg#icon-Bookshelf"></use>
+      </svg>
+    </a>
+    <ul class="home-nav">
+      <li class="nav-item" data-page="home-list">
+        <a href="/src/index.html" class="nav-btn js-link item-text">home</a>
+      </li>
+
+      <li class="nav-item" data-page="shpng-list">
+        <a
+          href="/src/shopping-list.html"
+          class="shpng-list-btn js-link link-js item-text item-text-victory"
+          >Shopping list
+          <svg class="shpng-list-logo" width="20" height="20">
+            <title>shoping_list</title>
+            <use
+              class="bag"
+              href="./images/sprite.svg#icon-uil-cart-black"
+            ></use>
+          </svg>
         </a>
-        <ul class="home-nav">
-            <li class="nav-item" data-page="home-list">
-                <a href="/src/index.html" class="nav-btn js-link item-text">home</a>
-            </li>
-
-            <li class="nav-item" data-page="shpng-list">
-                <a href="/src/shopping-list.html"
-                    class="shpng-list-btn js-link link-js item-text item-text-victory">Shopping list
-                    <svg class="shpng-list-logo" width="20" height="20">
-                        <title>shoping_list</title>
-                        <use class="bag" href="./images/sprite.svg#icon-uil-cart-black"></use>
-                    </svg>
-                </a>
-
-            </li>
-
-
-        </ul>
-
-
+      </li>
+    </ul>
+  </div>
+  <div class="switch">
+    <div class="theme-switch-wr">
+      <label class="theme-switch" for="checkbox">
+        <input type="checkbox" id="checkbox" />
+        <span class="slider round"></span>
+      </label>
     </div>
-    <div class="switch">
-        <div class="theme-switch-wr">
-            <label class="theme-switch" for="checkbox">
-                <input type="checkbox" id="checkbox" />
-                <span class="slider round"></span>
-            </label>
-        </div>
-    </div>
+  </div>
 
-    <div class="authorization">
-        <button type="submit" class="btn-user">
-
-            <svg class="btn-user-img" width="37" height="37">
-                <title>user</title>
-                <use href="/src/images/sprite.svg#user"></use>
-            </svg>
-            <span class="btn-user-label">Welcome</span>
-
-        </button>
-    </div>
-
-
-
-
-    <button class="menu-btn js-open-menu js-mobile-menu-toggle">
-        <svg width="28px" height="28px">
-            <title>open_mob_menu</title>
-            <use class="burger burger-victory" href="./images/sprite.svg#myMenu"></use>
-        </svg>
-
+  <div class="authorization">
+    <button type="submit" class="btn-user">
+      <svg class="btn-user-img" width="37" height="37">
+        <title>user</title>
+        <use href="/src/images/sprite.svg#user"></use>
+      </svg>
+      <span class="btn-user-label">Welcome</span>
     </button>
-    <button type="button" class="mob-menu-close-btn js-close-menu ">
-        <svg class="close-mob-menu close-mob-menu-victory" width="18" height="18">
-            <title>close-menu</title>
-            <use href="./images/sprite.svg#icon-cross-btn"></use>
-        </svg>
-    </button>
+  </div>
+
+  <button class="menu-btn js-open-menu js-mobile-menu-toggle">
+    <svg width="28px" height="28px">
+      <title>open_mob_menu</title>
+      <use
+        class="burger burger-victory"
+        href="./images/sprite.svg#myMenu"
+      ></use>
+    </svg>
+  </button>
+  <button type="button" class="mob-menu-close-btn js-close-menu">
+    <svg class="close-mob-menu close-mob-menu-victory" width="18" height="18">
+      <title>close-menu</title>
+      <use href="./images/sprite.svg#icon-cross-btn"></use>
+    </svg>
+  </button>
 </div>
 <div class="mob-menu-container js-menu-container" id="mobile-menu">
-    <ul class="list mob-menu-list">
-        <li class="mob-menu__item"><a href="/src/index.html" class="link  mob-menu-list__link js-link current">Home</a>
-        </li>
-        <li class="mob-menu__item"><a href="/src/shopping-list.html"
-                class="link mob-menu-list__link js-link link-js">Shopping list
-                <svg class="mob-menu__icon" width="20px" height="20px">
-                    <title>shoping_list</title>
-                    <use href="/src/images/sprite.svg#icon-uil-cart-black"></use>
-                </svg></a></li>
-    </ul>
+  <ul class="list mob-menu-list">
+    <li class="mob-menu__item">
+      <a href="/src/index.html" class="link mob-menu-list__link js-link current"
+        >Home</a
+      >
+    </li>
+    <li class="mob-menu__item">
+      <a
+        href="/src/shopping-list.html"
+        class="link mob-menu-list__link js-link link-js"
+        >Shopping list
+        <svg class="mob-menu__icon" width="20px" height="20px">
+          <title>shoping_list</title>
+          <use href="/src/images/sprite.svg#icon-uil-cart-black"></use></svg
+      ></a>
+    </li>
+  </ul>
 </div>

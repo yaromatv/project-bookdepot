@@ -1,7 +1,6 @@
 .gallery-section {
   width: 100%;
   padding-top: 40px;
-  padding-bottom: 40px;
 }
 
 .gallery-container {
@@ -38,7 +37,6 @@
 @media screen and (min-width: 768px) {
   .gallery-section {
     padding-top: 100px;
-    padding-bottom: 100px;
   }
 
   .gallery-container {
@@ -60,6 +58,5 @@
   .gallery-container {
     max-width: 996px;
     padding: 0;
-    /* padding-right: 24px; */
   }
 }

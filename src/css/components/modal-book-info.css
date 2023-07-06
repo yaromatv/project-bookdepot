@@ -61,11 +61,11 @@ body.modal-open {
   height: 24px;
   border: none;
   cursor: pointer;
-  transition: fill 0.3s ease;
-  stroke: (--text-color);
-  transition: stroke 0.3s ease;
+  scale: 1;
+  stroke: var(--text-color);
+  transition: scale 0.3s ease;
   background: transparent;
-  fill: var(--dark-theme-componemt);
+  fill: var(--text-color);
 }
 
 .modal-close-icon {
@@ -73,10 +73,9 @@ body.modal-open {
   height: 12px;
 }
 
-.modal-close-btn:hover .modal-close-icon:hover {
-  /* color: #4f2ee8;
-  stroke: #4f2ee8; */
-  fill: #4f2ee8;
+.modal-close-btn:hover,
+.modal-close-icon:hover {
+  scale: 1.25;
 }
 
 .book-item {
@@ -142,7 +141,7 @@ body.modal-open {
 }
 .add-list-btn,
 .remove-list-btn {
-  color: (--text-color);
+  color: var(--text-color);
   background-color: white;
   font-family: 'DM Sans', sans-serif;
   font-size: 14px;
@@ -152,10 +151,11 @@ body.modal-open {
   text-transform: uppercase;
   padding: 14px 28px;
   border-radius: 40px;
-  border: 2px solid #4f2ee8;
+  border: 2px solid var(--light-category-accent-color);
   text-align: center;
   min-width: 211px;
   min-width: 279px;
+  cursor: pointer;
 }
 
 .add-list-btn:hover,

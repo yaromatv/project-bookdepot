@@ -11,10 +11,27 @@
   --button-accent-text-color: #ffffff;
 }
 
+html {
+  height: 100%;
+}
+
 body {
+  height: 100%;
   font-family: 'DM Sans', sans-serif;
   color: var(--text-color);
   background-color: #f3f3f3;
+}
+
+.wrapper {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: auto;
 }
 
 .main-wrapper {
