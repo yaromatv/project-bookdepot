@@ -3,7 +3,7 @@
 }
 
 .shopping-list-container {
-  overflow: scroll;
+  /* overflow: scroll; */
   padding-top: 104px;
 }
 .remove-shopping-list-btn {
