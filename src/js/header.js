@@ -1,53 +1,38 @@
 // !!!!!!!!!!!!!              Hilighting of current pages         !!!!!!!!!!!!!!!!!!
-// const homeLink = document.querySelector('[data-page="home-list"]');
-// const ShoppingListLink = document.querySelector('[data-page="shpng-list"]');
+const navHreffsArr = document.querySelectorAll('.js-link');
 
-// const navHreffsArr = document.querySelectorAll('.js-link');
-// console.dir(navHreffsArr);
-// navHreffsArr.forEach((navLink) => {
-//     if (navLink.href===navLink.baseURI) {
-//         navLink.style.backgroundColor = "#EAC645";
-//         navLink.style.color = "#111111";
-        
-//     } else {
-//         navLink.style.backgroundColor = "transparent";
-//         navLink.style.color = "#111111";
-//     }
-// })
-
-
-
+navHreffsArr.forEach(navLink => {
+  if (navLink.href === navLink.baseURI) {
+    navLink.classList.add('current');
+  } else {
+    navLink.classList.remove('current');
+  }
+});
 
 // !!!!!!!!!!!!!!!           close-btn in burger-menu          !!!!!!!!!!!!!!!!!!!
 
-
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   const mobileMenuToggle = document.querySelector('.js-mobile-menu-toggle');
   const mobileMenuClose = document.querySelector('.js-close-menu');
 
-  mobileMenuToggle.addEventListener('click', function() {
-  mobileMenuClose.classList.toggle('show');
+  mobileMenuToggle.addEventListener('click', function () {
+    mobileMenuClose.classList.toggle('show');
   });
 
-  mobileMenuClose.addEventListener('click', function() {
+  mobileMenuClose.addEventListener('click', function () {
     mobileMenuClose.classList.remove('show');
   });
-    
-  mobileMenuToggle.addEventListener('click', function() {
-  mobileMenuToggle.classList.add('hidden');
-  mobileMenuClose.classList.remove('hidden');
+
+  mobileMenuToggle.addEventListener('click', function () {
+    mobileMenuToggle.classList.add('hidden');
+    mobileMenuClose.classList.remove('hidden');
+  });
+
+  mobileMenuClose.addEventListener('click', function () {
+    mobileMenuClose.classList.add('hidden');
+    mobileMenuToggle.classList.remove('hidden');
+  });
 });
-
-mobileMenuClose.addEventListener('click', function() {
-  mobileMenuClose.classList.add('hidden');
-  mobileMenuToggle.classList.remove('hidden');
-});
-});
-
-
-
-
-
 
 // !!!!!!!!!!!!!!!!!!!!!!!          BURGER MENU                !!!!!!!!!!!!!!!!!!!!!!!!!!
 
@@ -60,7 +45,6 @@ mobileMenuClose.addEventListener('click', function() {
     const isMenuOpen =
       openMenuBtn.getAttribute('aria-expanded') === 'true' || false;
     mobileMenu.classList.toggle('is-open');
-
   };
 
   openMenuBtn.addEventListener('click', toggleMenu);
@@ -73,11 +57,3 @@ mobileMenuClose.addEventListener('click', function() {
     openMenuBtn.setAttribute('aria-expanded', false);
   });
 })();
-
-
-
-
-
-
-
-
