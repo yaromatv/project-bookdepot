@@ -32,6 +32,6 @@ A mobile-first application built with modern web technologies and Parcel for a s
 
 ## Getting Started
 
-1. Clone the repo: `git clone https://github.com/yaromatv/watertracker-backend.git`
+1. Clone the repo: `git clone https://github.com/yaromatv/project-bookdepot.git`
 2. Install dependencies: `npm install`
 3. Start the server: `npm start`
